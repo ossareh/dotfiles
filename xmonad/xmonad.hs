@@ -1,6 +1,8 @@
 import XMonad
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Spacing
+import XMonad.Util.EZConfig
+import Graphics.X11.ExtraTypes.XF86
 
 -- basic truths:
 --   mod + shift + enter == terminal
@@ -55,4 +57,10 @@ main = do
       , workspaces = myWorkspaces
       , manageHook = manageDocks <+> myManageHook
         <+> manageHook defaultConfig
-    }
+    }`additionalKeys`
+          -- [1]
+      [   ((noModMask, xF86XK_MonBrightnessUp),   spawn "xbacklight +10")
+        , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -10")
+      ]
+
+-- [1] http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:KeyMask

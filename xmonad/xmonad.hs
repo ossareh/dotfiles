@@ -4,9 +4,14 @@ import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig
 import Graphics.X11.ExtraTypes.XF86
 
--- basic truths:
+-- key bindings:
 --   mod + shift + enter == terminal
 --   mod + space         == cycle layouts
+--   mod + shift + space == demnu (TODO)
+
+-- Primary Colours
+clrHighlight = "#cf5300"
+clrNeutral   = "#4d1e00"
 
 -- The terminal you wish to use
 myTerminal = "urxvt256c"
@@ -39,7 +44,6 @@ myLayout = tiled ||| Mirror tiled ||| Full
   -- percent of screen to increment when resizing tiles
   delta = 5/100
 
-
 main = do
   xmonad $ defaultConfig
     {
@@ -48,19 +52,31 @@ main = do
       , terminal  = myTerminal
 
       -- tile concerns
-      , borderWidth         = 2
-      , normalBorderColor   = "#4d1e00"
-      , focusedBorderColor  = "#cf5300"
+      , borderWidth         = 3
+      , normalBorderColor   = clrNeutral
+      , focusedBorderColor  = clrHighlight
 
       -- layout concerns
       , layoutHook = myLayout
       , workspaces = myWorkspaces
       , manageHook = manageDocks <+> myManageHook
         <+> manageHook defaultConfig
+    -- TODO: put in `keys` constructor as demoed here [3]
     }`additionalKeys`
           -- [1]
       [   ((noModMask, xF86XK_MonBrightnessUp),   spawn "xbacklight +10")
         , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -10")
+--        TODO: make a pretty dmenu (use clr* variables)
+--        , ((mod4Mask .|. shiftMask, xK_space),
+--            spawn "exe=`dmenu_run -b -nb \#333333 -nf \#4d1e00 -sf \#ff6600 -p \"run >\"` && eval \"exec $exe\"")
+      ]`removeKeys`
+      [
+        (mod4Mask, xK_p) -- dmenu is going to move
       ]
 
 -- [1] http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:KeyMask
+-- [2] /usr/share/X11/rgb.txt & WolframAlpha
+--     #333333 -> rgb(51,51,51)  -> grey20
+--     #4d1e00 -> rgb(77,30,0)   -> n/a
+--     #ff6600 -> rgb(255,102,0) -> n/a
+-- [3] http://www.haskell.org/haskellwiki/John-yates-xmonad.hs

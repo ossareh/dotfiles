@@ -1,7 +1,12 @@
 execute pathogen#infect()
-syntax on
 filetype plugin indent on
+syntax enable
 
-set sw=2
-set ts=2
-set et
+" set background=dark
+" let g:solarized_termcolors=256
+" colorscheme solarized
+
+set shiftwidth=2
+set tabstop=2
+set expandtab
+set number

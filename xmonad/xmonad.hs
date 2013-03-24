@@ -1,16 +1,21 @@
 import XMonad
-import XMonad.Hooks.ManageDocks
-import XMonad.Layout.Spacing
-import XMonad.Util.EZConfig
-import Graphics.X11.ExtraTypes.XF86
+import XMonad.Hooks.DynamicLog      -- needed for xmobar/dzen2
+import XMonad.Hooks.ManageDocks     -- workspace support
+import XMonad.Layout.Spacing        -- add spaces between tiles
+import XMonad.Layout.NoBorders      -- [4]
+import XMonad.Layout.PerWorkspace   -- provides onWorkspace
+import XMonad.Util.EZConfig         -- needed for key map
+import XMonad.Util.Run              -- provides spawnPipe and hPutStrLn
+import Graphics.X11.ExtraTypes.XF86 -- needed for laptop keys
 
 -- key bindings:
 --   mod + shift + enter == terminal
 --   mod + space         == cycle layouts
 --   mod + shift + space == demnu (TODO)
+--   mod + 1,2,3         == switch workspace
 
 -- Primary Colours
-clrHighlight = "#cf5300"
+clrHighlight = "#eb5e00"
 clrNeutral   = "#4d1e00"
 
 -- The terminal you wish to use
@@ -22,16 +27,11 @@ myWorkspaces = ["1:main", "2:code", "3:IM"] -- TODO: add irc
 -- app to workspace mapping
 myManageHook = composeAll
   [
-      -- TODO: work out how to reference variables, I should be able to
-      -- write 'terminal' here in stead of urxvt256c
-      className =? "google-chrome"  --> doShift "1:main"
-    , className =? "urxvt256c"      --> doShift "1:main"
-    , className =? "urxvt256c"      --> doShift "2:code"
-    , className =? "psi"            --> doShift "3:IM"
+    className =? "Pidgin" --> doShift "3:IM"
   ]
 
 -- layout related configs
-myLayout = tiled ||| Mirror tiled ||| Full
+defaultLayout = tiled ||| Mirror tiled ||| Full
   where
   tiled = spacing 3 $ Tall nmaster delta ratio
 
@@ -44,7 +44,19 @@ myLayout = tiled ||| Mirror tiled ||| Full
   -- percent of screen to increment when resizing tiles
   delta = 5/100
 
+--
+-- this only really works because pidgin uses tabs
+pidginLayout = tiled
+  where
+  -- Tall(#inMasterPane, resize%, master%)
+  tiled = spacing 3 $ Tall 1 (5/100) (1/5)
+
+
+myLayout = onWorkspace "3:IM" pidginLayout $ defaultLayout
+
 main = do
+  -- depends on the fact that ~/.xmobarrc exists
+  xmproc <- spawnPipe "xmobar"
   xmonad $ defaultConfig
     {
       -- core configs
@@ -57,10 +69,21 @@ main = do
       , focusedBorderColor  = clrHighlight
 
       -- layout concerns
-      , layoutHook = myLayout
+      , layoutHook = avoidStruts $ smartBorders $ myLayout
       , workspaces = myWorkspaces
-      , manageHook = manageDocks <+> myManageHook
-        <+> manageHook defaultConfig
+      , manageHook = myManageHook <+> manageHook defaultConfig
+
+      -- resize tiles when xmobar is ready
+      , handleEventHook = docksEventHook
+      , logHook = dynamicLogWithPP xmobarPP
+        {
+            ppOutput = hPutStrLn xmproc
+            -- TODO: can we highlight the in focus window in a nicer way?
+            -- replace green, it is so ghetto
+          , ppTitle  = xmobarColor "green" "" . shorten 50
+          , ppLayout = const ""   -- disables layout output
+        }
+
     -- TODO: put in `keys` constructor as demoed here [3]
     }`additionalKeys`
           -- [1]
@@ -69,9 +92,10 @@ main = do
 --        TODO: make a pretty dmenu (use clr* variables)
 --        , ((mod4Mask .|. shiftMask, xK_space),
 --            spawn "exe=`dmenu_run -b -nb \#333333 -nf \#4d1e00 -sf \#ff6600 -p \"run >\"` && eval \"exec $exe\"")
+--        TODO: support screensaver button to lock screen
       ]`removeKeys`
       [
-        (mod4Mask, xK_p) -- dmenu is going to move
+        -- (mod4Mask, xK_p) -- dmenu is going to move
       ]
 
 -- [1] http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:KeyMask
@@ -80,3 +104,4 @@ main = do
 --     #4d1e00 -> rgb(77,30,0)   -> n/a
 --     #ff6600 -> rgb(255,102,0) -> n/a
 -- [3] http://www.haskell.org/haskellwiki/John-yates-xmonad.hs
+-- [4] http://braincrater.wordpress.com/2008/11/15/pimp-your-xmonad-2-smartborders/

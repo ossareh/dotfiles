@@ -1,0 +1,16 @@
+Config {  font = "xft:Source Code Pro Semibold-9:"
+        , bgColor = "#333333"
+        , fgColor = "#eb5e00"
+        , position = TopW L 100
+        , lowerOnStart = True
+        , commands = [
+            Run Cpu ["-L", "15", "-H", "75", "--high", "red"] 10
+          , Run Battery [] 10
+          , Run Memory ["-t", "Mem: <usedratio>%"] 10
+          , Run Date "%a %b %_d %l:%M" "date" 10
+          , Run StdinReader
+        ]
+        , sepChar = "%"
+        , alignSep = "}{"
+        , template = " %StdinReader% }{ %cpu% | %memory%   %date% | %battery%"
+        }

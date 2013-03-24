@@ -1,0 +1,10 @@
+#!/bin/bash
+
+xsetroot -solid gray13
+
+# start tray app
+[ -x /usr/bin/trayer ] && trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 20 --transparent true --alpha 255 &
+
+[ -x /usr/bin/nm-applet ] && nm-applet -sm-disable &
+
+[ -x /usr/bin/gnome-power-manager ] && gnome-power-manager &

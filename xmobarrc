@@ -4,7 +4,7 @@ Config {  font = "xft:Source Code Pro Semibold-9:"
         , position = TopW L 100
         , lowerOnStart = True
         , commands = [
-            Run Cpu ["-L", "15", "-H", "75", "--high", "red"] 10
+            Run MultiCpu ["-t", "CPU: <total>% (<autototal>)"] 10
           , Run Battery [] 10
           , Run Memory ["-t", "Mem: <usedratio>%"] 10
           , Run Date "%a %b %_d %l:%M" "date" 10
@@ -12,5 +12,5 @@ Config {  font = "xft:Source Code Pro Semibold-9:"
         ]
         , sepChar = "%"
         , alignSep = "}{"
-        , template = " %StdinReader% }{ %cpu% | %memory%   %date% | %battery%"
+        , template = " %StdinReader% }{ %multicpu% | %memory% | %date% | %battery%"
         }

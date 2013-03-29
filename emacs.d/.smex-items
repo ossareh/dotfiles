@@ -1,0 +1,22 @@
+
+;; ----- smex-history -----
+(
+ shell
+ eval-buffer
+ load-theme
+ list-load-path-shadows
+ locate-library
+ package-install
+ cd
+)
+
+;; ----- smex-data -----
+(
+ (eval-buffer . 14)
+ (package-install . 1)
+ (locate-library . 1)
+ (color-theme-select . 2)
+ (list-load-path-shadows . 1)
+ (shell . 7)
+ (load-theme . 10)
+)

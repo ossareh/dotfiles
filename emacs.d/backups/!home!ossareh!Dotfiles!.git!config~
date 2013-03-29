@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = git@github.com:ossareh/dotfiles.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[submodule "vim/bundle/vim-colors-solarized"]
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/vim-pathogen"]
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "vim/bundle/vim-sensible"]
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "emacs.d/theme/emacs-color-theme-solarized"]
+	url = https://github.com/mwolson/emacs-color-theme-solarized

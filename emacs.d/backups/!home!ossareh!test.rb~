@@ -1,0 +1,10 @@
+def some_method
+  File.read(A_CONSTANT)
+end
+
+class Integer
+  def something_cool
+
+  end
+
+end

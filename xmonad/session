@@ -13,7 +13,10 @@
 xsetroot -solid gray13
 
 # start tray app (TODO: replace with stalonetray
-[ -x /usr/bin/trayer ] && trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 20 --transparent true --alpha 255 &
+# [ -x /usr/bin/trayer ] && trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --height 20 --transparent true --alpha 255 &
 
 # network monitor app, --sm-disable prevents multiple copies starting
 [ -x /usr/bin/nm-applet ] && nm-applet --sm-disable &
+
+# start emacs server
+[ -x /usr/bin/emacs ] && emacs --daemon &

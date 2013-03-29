@@ -12,6 +12,12 @@
 
 
 ! ...
+!---- Xft Settings
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
 
 !---- URxvt - General settings {
 URxvt*:borderLess:                    true
@@ -26,6 +32,7 @@ URxvt*visualBell:                     false
 URxvt*perl-ext-common:                default,matcher
 URxvt*urlLauncher:                    google-chrome
 URxvt*matcher.button:                 1
+URxvt.depth:                          32
 
 !---- Default URxvt (Solarized Dark, 12px)
 URxvt*fading:                         30

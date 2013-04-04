@@ -2,7 +2,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog      -- needed for xmobar/dzen2
 import XMonad.Hooks.ManageDocks     -- workspace support
 import XMonad.Layout.Spacing        -- add spaces between tiles
-import XMonad.Layout.NoBorders      -- [4]
+import XMonad.Layout.NoBorders      -- [3]
 import XMonad.Layout.PerWorkspace   -- provides onWorkspace
 import XMonad.Util.EZConfig         -- needed for key map
 import XMonad.Util.Run              -- provides spawnPipe and hPutStrLn
@@ -14,6 +14,11 @@ import Graphics.X11.ExtraTypes.XF86 -- needed for laptop keys
 --   mod + shift + space == demnu (TODO)
 --   mod + 1,2,3         == switch workspace
 
+-- TODO:
+--   + auto start apps
+--   + auto start apps on the correct screens
+--   + support those apps starting on particular screens (i.e. use irssi for irc, thus terminal on two workspaces)
+
 -- Primary Colours
 clrHighlight = "#eb5e00"
 clrNeutral   = "#4d1e00"
@@ -21,13 +26,20 @@ clrNeutral   = "#4d1e00"
 -- The terminal you wish to use
 myTerminal = "urxvt256c"
 
+-- Brightness Settings
+brightnessIncrement = "10"
+
+-- Audio Settings 
+audioIncrement = "5%"
+
 -- workspace names
-myWorkspaces = ["1:main", "2:code", "3:IM"] -- TODO: add irc
+myWorkspaces = ["1:main", "2:code", "3:IM", "4:Skype"] -- TODO: add irc
 
 -- app to workspace mapping
 myManageHook = composeAll
   [
-    className =? "Pidgin" --> doShift "3:IM"
+      className =? "Pidgin" --> doShift "3:IM"
+    , className =? "Skype"  --> doShift "4:Skype"
   ]
 
 -- layout related configs
@@ -46,13 +58,13 @@ defaultLayout = tiled ||| Mirror tiled ||| Full
 
 --
 -- this only really works because pidgin uses tabs
-pidginLayout = tiled
+myImLayout = tiled
   where
   -- Tall(#inMasterPane, resize%, master%)
   tiled = spacing 3 $ Tall 1 (5/100) (1/5)
 
 
-myLayout = onWorkspace "3:IM" pidginLayout $ defaultLayout
+myLayout = onWorkspaces ["3:IM", "4:Skype"] myImLayout $ defaultLayout
 
 main = do
   -- depends on the fact that ~/.xmobarrc exists
@@ -84,24 +96,28 @@ main = do
           , ppLayout = const ""   -- disables layout output
         }
 
-    -- TODO: put in `keys` constructor as demoed here [3]
+    -- TODO: put in `keys` constructor as demoed here [2]
     }`additionalKeys`
           -- [1]
-      [   ((noModMask, xF86XK_MonBrightnessUp),   spawn "xbacklight +10")
-        , ((noModMask, xF86XK_MonBrightnessDown), spawn "xbacklight -10")
+      [   ((noModMask, xF86XK_MonBrightnessUp),   spawn ("xbacklight +" ++ brightnessIncrement))
+        , ((noModMask, xF86XK_MonBrightnessDown), spawn ("xbacklight -" ++ brightnessIncrement))
+
+        -- volume control
+        , ((noModMask, xF86XK_AudioMute),         spawn "amixer set Master toggle")
+        , ((noModMask, xF86XK_AudioRaiseVolume),  spawn ("amixer set Master " ++ audioIncrement ++ "+"))
+        , ((noModMask, xF86XK_AudioLowerVolume),  spawn ("amixer set Master " ++ audioIncrement ++ "-"))
+
+        -- screensaver / lock screen
+        , ((noModMask, xF86XK_ScreenSaver),       spawn "xlock -mode dclock")
+
 --        TODO: make a pretty dmenu (use clr* variables)
 --        , ((mod4Mask .|. shiftMask, xK_space),
 --            spawn "exe=`dmenu_run -b -nb \#333333 -nf \#4d1e00 -sf \#ff6600 -p \"run >\"` && eval \"exec $exe\"")
---        TODO: support screensaver button to lock screen
       ]`removeKeys`
       [
         -- (mod4Mask, xK_p) -- dmenu is going to move
       ]
 
 -- [1] http://xmonad.org/xmonad-docs/X11/Graphics-X11-Types.html#t:KeyMask
--- [2] /usr/share/X11/rgb.txt & WolframAlpha
---     #333333 -> rgb(51,51,51)  -> grey20
---     #4d1e00 -> rgb(77,30,0)   -> n/a
---     #ff6600 -> rgb(255,102,0) -> n/a
--- [3] http://www.haskell.org/haskellwiki/John-yates-xmonad.hs
--- [4] http://braincrater.wordpress.com/2008/11/15/pimp-your-xmonad-2-smartborders/
+-- [2] http://www.haskell.org/haskellwiki/John-yates-xmonad.hs
+-- [3] http://braincrater.wordpress.com/2008/11/15/pimp-your-xmonad-2-smartborders/

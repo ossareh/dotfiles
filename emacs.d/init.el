@@ -15,7 +15,8 @@
                       starter-kit-ruby
                       starter-kit-js
                       no-easy-keys
-                      color-theme)
+                      color-theme
+                      haskell-mode)
   "A list of packages to be installed at startup")
 
 (dolist (p my-packages)

@@ -16,7 +16,13 @@
                       starter-kit-js
                       no-easy-keys
                       color-theme
-                      haskell-mode)
+                      haskell-mode
+                      ac-nrepl
+                      align-cljlet
+                      clojure-mode
+                      clojure-project-mode
+                      clojure-test-mode
+                      nrepl)
   "A list of packages to be installed at startup")
 
 (dolist (p my-packages)

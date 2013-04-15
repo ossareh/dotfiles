@@ -33,7 +33,12 @@ brightnessIncrement = "10"
 audioIncrement = "5%"
 
 -- workspace names
-myWorkspaces = ["1:main", "2:code", "3:IM", "4:Skype"] -- TODO: add irc
+primary  = "main"
+code     = "code"
+im       = "IM"
+skype    = "Skype"
+irc      = "IRC"
+myWorkspaces = [primary, code, im, skype, irc]
 
 -- app to workspace mapping
 myManageHook = composeAll

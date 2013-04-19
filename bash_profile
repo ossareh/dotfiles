@@ -8,7 +8,14 @@ export EDITOR=`which emacsclient`
 export PATH=~/bin:${PATH}
 
 # arcanist
-ARCPATH=~/dev/oss/arcanist/bin
-if [ -d ${ARCPATH} ]; then
-    export PATH=${ARCPATH}:${PATH}
+ARC_PATH=~/dev/oss/arcanist/bin
+if [ -d ${ARC_PATH} ]; then
+    export PATH=${ARC_PATH}:${PATH}
+fi
+
+# rbenv
+RBENV_PATH=~/dev/oss/rbenv/bin
+if [ -d ${RBENV_PATH} ]; then
+    export PATH=${RBENV_PATH}:${PATH}
+    eval "$(rbenv init -)"
 fi

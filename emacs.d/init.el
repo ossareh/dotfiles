@@ -41,3 +41,6 @@
 ;; disable arrow keys
 (require 'no-easy-keys)
 (no-easy-keys 1)
+
+;; treat rabl like ruby
+(add-to-list 'auto-mode-alist '("\\.rabl\\'" . ruby-mode))

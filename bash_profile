@@ -1,8 +1,13 @@
 #!/bin/bash
 
-source /etc/bashrc
+if [ -e /etc/bashrc ]; then
+    source /etc/bashrc
+fi
 
 export EDITOR=`which emacsclient`
+if [ ! -x $EDITOR ]; then
+    export EDITOR=`which vim`
+fi
 
 # ~/bin
 export PATH=~/bin:${PATH}

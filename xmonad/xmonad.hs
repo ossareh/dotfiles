@@ -35,17 +35,18 @@ audioIncrement = "5%"
 -- workspace names
 primary  = "main"
 code     = "code"
+hackpad  = "hackpad"
 im       = "IM"
 skype    = "Skype"
 irc      = "IRC"
-myWorkspaces = [primary, code, im, skype, irc]
+myWorkspaces = [primary, code, hackpad, im, skype, irc]
 
 -- app to workspace mapping
-myManageHook = composeAll
-  [
-      className =? "Pidgin" --> doShift "3:IM"
-    , className =? "Skype"  --> doShift "4:Skype"
-  ]
+-- myManageHook = composeAll
+--   [
+--       className =? "Pidgin" --> doShift "IM"
+--     , className =? "Skype"  --> doShift "Skype"
+--   ]
 
 -- layout related configs
 defaultLayout = tiled ||| Mirror tiled ||| Full
@@ -88,7 +89,8 @@ main = do
       -- layout concerns
       , layoutHook = avoidStruts $ smartBorders $ myLayout
       , workspaces = myWorkspaces
-      , manageHook = myManageHook <+> manageHook defaultConfig
+--      , manageHook = myManageHook <+> manageHook defaultConfig
+      , manageHook = manageHook defaultConfig
 
       -- resize tiles when xmobar is ready
       , handleEventHook = docksEventHook

@@ -17,6 +17,3 @@ xsetroot -solid gray13
 
 # network monitor app, --sm-disable prevents multiple copies starting
 [ -x /usr/bin/nm-applet ] && nm-applet --sm-disable &
-
-# start emacs server
-[ -x /usr/bin/emacs ] && emacs --daemon &

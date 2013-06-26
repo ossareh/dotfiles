@@ -4,10 +4,13 @@ if [ -e /etc/bashrc ]; then
     source /etc/bashrc
 fi
 
-export EDITOR=`which emacsclient`
+EDITOR=`which emacsclient`
 if [ ! -x $EDITOR ]; then
-    export EDITOR=`which vim`
+    EDITOR=`which vim`
 fi
+export EDITOR
+# http://stackoverflow.com/questions/5570451/how-to-start-emacs-server-only-if-it-is-not-started
+export ALTERNATE_EDITOR=''
 
 # ~/bin
 export PATH=~/bin:${PATH}
@@ -24,3 +27,10 @@ if [ -d ${RBENV_PATH} ]; then
     export PATH=${RBENV_PATH}:${PATH}
     eval "$(rbenv init -)"
 fi
+
+# export TERM correctly
+case "$TERM" in
+    "rxvt-unicode-256color")
+        export TERM=rxvt-unicode
+        ;;
+esac

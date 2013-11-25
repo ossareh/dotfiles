@@ -1,8 +1,7 @@
-
 ;; set up marmalade package repo
 (require 'package)
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 ;; install things that may not be installed
@@ -16,13 +15,36 @@
                       starter-kit-js
                       no-easy-keys
                       color-theme
-                      haskell-mode
                       ac-nrepl
                       align-cljlet
                       clojure-mode
                       clojure-project-mode
                       clojure-test-mode
-                      nrepl)
+                      nrepl
+                      auto-complete
+                      project-mode
+                      find-file-in-project
+                      flymake
+                      flymake-css
+                      flymake-csslint
+                      flymake-easy
+                      flymake-go
+                      flymake-haml
+                      flymake-jslint
+                      flymake-json
+                      flymake-lua
+                      flymake-puppet
+                      flymake-python-pyflakes
+                      flymake-ruby
+                      flymake-shell
+                      handlebars-mode
+                      lua-mode
+                      magit
+                      markdown-mode
+                      org
+                      paredit
+                      puppet-mode
+                      whitespace-cleanup-mode)
   "A list of packages to be installed at startup")
 
 (dolist (p my-packages)
@@ -36,11 +58,15 @@
 ;; solarized colour theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
 (require 'color-theme)
-(load-theme 'solarized-dark t) ;; TODO: colors are so slightly off
+(load-theme 'solarized-dark t)
 
 ;; disable arrow keys
 (require 'no-easy-keys)
 (no-easy-keys 1)
 
-;; treat rabl like ruby
-(add-to-list 'auto-mode-alist '("\\.rabl\\'" . ruby-mode))
+;; setup auto modes
+(add-to-list 'auto-mode-alist
+             ;; tream rabl like ruby
+             '("\\.rabl$" . ruby-mode)
+             '("\\.pp$" . puppet-mode))
+

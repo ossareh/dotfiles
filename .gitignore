@@ -1,6 +1,7 @@
 emacs.d/auto-save-list/*
 emacs.d/backups/*
 emacs.d/.smex-data
+emacs.d/.smex-items
 emacs.d/places
 xmonad/xmonad-x86_64-linux
 xmonad/xmonad.hi

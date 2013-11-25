@@ -1,28 +1,7 @@
-
-!   .Xresources file
-!   Man pages: xrdb, Xsession
-!
-! --------------------------------------------
-! Note that $HOME/.Xdefaults is a relic from
-! X Version 10 (and  X11R1)  days, before
-! app-defaults  files were implemented.
-! It has been deprecated for over ten years
-! .Xresources should be used instead.
-! --------------------------------------------
-
-
-! ...
-!---- Xft Settings
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.rgba:       rgb
-Xft.hinting:    true
-Xft.hintstyle:  hintslight
-
 !---- URxvt - General settings {
 URxvt*:borderLess:                    true
 URxvt*cursorBlink:                    true
-URxvt*font:                           xft:Source Code Pro Semibold-9
+URxvt*font:                           xft:Source Code Pro Semibold-12
 URxvt*jumpScroll:                     true
 URxvt*scrollBar:                      false
 URxvt*scrollTtyOutput:                false
@@ -30,12 +9,12 @@ URxvt*scrollTtyKeypress:              true
 URxvt*urgentOnBell:                   true
 URxvt*visualBell:                     false
 URxvt*perl-ext-common:                default,matcher
-URxvt*urlLauncher:                    google-chrome
+URxvt*urlLauncher:                    firefox
 URxvt*matcher.button:                 1
 URxvt.depth:                          32
 
 !---- Default URxvt (Solarized Dark, 12px)
-URxvt*fading:                         30
+URxvt*fading:                         0
 URxvt*background:                     #002b36
 URxvt*foreground:                     #657b83
 URxvt*fadeColor:                      #002b36

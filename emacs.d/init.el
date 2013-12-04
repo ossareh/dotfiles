@@ -23,7 +23,6 @@
                       align-cljlet
                       clojure-mode
                       clojure-project-mode
-                      clojure-test-mode
                       cider
                       auto-complete
                       project-mode

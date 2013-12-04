@@ -3,8 +3,9 @@
 ;;; Code:
 
 
-;;;### (autoloads nil nil ("clojure-project-mode-pkg.el" "clojure-project-mode.el")
-;;;;;;  (20844 37171 150611))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/clojure-project-mode-1.0/clojure-project-mode-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/clojure-project-mode-1.0/clojure-project-mode.el")
+;;;;;;  (21150 35203 466755 611000))
 
 ;;;***
 

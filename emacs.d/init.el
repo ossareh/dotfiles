@@ -1,7 +1,11 @@
 ;; set up marmalade package repo
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+;; TODO: combine these into a (dolist (x repos))
+(defvar repos '(("marmalade" . "http://marmalade-repo.org/packages/")
+                ("melpa" . "http://melpa.milkbox.net/packages/")
+                ("gnu" . "http://elpa.gnu.org/packages/")))
+(dolist (r repos)
+  (add-to-list 'package-archives r t))
 (package-initialize)
 
 ;; install things that may not be installed
@@ -20,7 +24,7 @@
                       clojure-mode
                       clojure-project-mode
                       clojure-test-mode
-                      nrepl
+                      cider
                       auto-complete
                       project-mode
                       find-file-in-project
@@ -44,7 +48,8 @@
                       org
                       paredit
                       puppet-mode
-                      whitespace-cleanup-mode)
+                      whitespace-cleanup-mode
+                      rainbow-delimiters)
   "A list of packages to be installed at startup")
 
 (dolist (p my-packages)
@@ -55,18 +60,33 @@
 (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
 (remove-hook 'prog-mode-hook 'esk-turn-on-idle-highlight-mode)
 
-;; solarized colour theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
-(require 'color-theme)
-(load-theme 'solarized-dark t)
-
 ;; disable arrow keys
 (require 'no-easy-keys)
 (no-easy-keys 1)
 
 ;; setup auto modes
-(add-to-list 'auto-mode-alist
-             ;; tream rabl like ruby
-             '("\\.rabl$" . ruby-mode)
-             '("\\.pp$" . puppet-mode))
+(defvar my-filemodes '(("\\.rabl$" . ruby-mode)
+                       ("\\.pp$" . puppet-mode)
+                       ("\\.md$" . markdown-mode)))
 
+(dolist (filemode my-filemodes)
+  (add-to-list 'auto-mode-alist filemode))
+;; (add-to-list 'auto-mode-alist
+;;              ;; treat rabl like ruby
+;;              '("\\.rabl$" . ruby-mode)
+;;              '("\\.pp$" . puppet-mode)
+;;              '("\\.md$" . markdown-mode))
+
+
+;; always display column number
+(column-number-mode 1)
+
+;; solarized colour theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
+(require 'color-theme)
+(load-theme 'solarized-dark t)
+
+;; clojure setup
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)

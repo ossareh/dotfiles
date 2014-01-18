@@ -70,11 +70,6 @@
 
 (dolist (filemode my-filemodes)
   (add-to-list 'auto-mode-alist filemode))
-;; (add-to-list 'auto-mode-alist
-;;              ;; treat rabl like ruby
-;;              '("\\.rabl$" . ruby-mode)
-;;              '("\\.pp$" . puppet-mode)
-;;              '("\\.md$" . markdown-mode))
 
 
 ;; always display column number

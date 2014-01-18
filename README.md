@@ -11,6 +11,12 @@ Using the dotfiles from pythons pip repo
 
 `dotfiles --sync`
 
+Exceptions
+==========
+
+`cdmrc` should be put in `/etc/cdmrc`
+Once `awesome` is linked into `~/` you then need to symlink it to `~/.config/awesome`
+
 TO-DO
 =====
 

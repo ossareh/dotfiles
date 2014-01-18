@@ -51,6 +51,12 @@ if [ -d ${RBENV_PATH} ]; then
     eval "$(rbenv init -)"
 fi
 
+# heroku toolbet
+HEROKU_PATH=/usr/local/heroku
+if [ -d ${HEROKU_PATH} ]; then
+    export PATH=${HEROKU_PATH}/bin:$PATH
+fi
+
 # random
 export GREP_OPTIONS='--color=always'
 PDSH_SSH_ARGS_APPEND=-tt

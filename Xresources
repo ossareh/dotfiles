@@ -1,7 +1,7 @@
 !---- URxvt - General settings {
 URxvt*:borderLess:                    true
 URxvt*cursorBlink:                    true
-URxvt*font:                           xft:Source Code Pro Semibold-12
+URxvt*font:                           xft:Source Code Pro Medium:pixelsize=14
 URxvt*jumpScroll:                     true
 URxvt*scrollBar:                      false
 URxvt*scrollTtyOutput:                false

@@ -17,6 +17,12 @@ Exceptions
 `cdmrc` should be put in `/etc/cdmrc`
 Once `awesome` is linked into `~/` you then need to symlink it to `~/.config/awesome`
 
+MISC
+====
+
+Install ttf-google-fonts-git if you're on arch :)
+
+
 TO-DO
 =====
 

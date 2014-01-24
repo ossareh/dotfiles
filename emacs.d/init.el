@@ -48,7 +48,13 @@
                       paredit
                       puppet-mode
                       whitespace-cleanup-mode
-                      rainbow-delimiters)
+                      rainbow-delimiters
+                      go-autocomplete
+                      go-direx
+                      go-eldoc
+                      go-errcheck
+                      go-mode
+                      golint)
   "A list of packages to be installed at startup")
 
 (dolist (p my-packages)

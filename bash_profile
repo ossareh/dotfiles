@@ -57,6 +57,13 @@ if [ -d ${HEROKU_PATH} ]; then
     export PATH=${HEROKU_PATH}/bin:$PATH
 fi
 
+# GoLang
+GOROOT=~/dev/oss/go
+if [ -d ${GOROOT} ]; then
+    export GOROOT
+    export PATH=${GOROOT}/bin:$PATH
+fi
+
 # random
 export GREP_OPTIONS='--color=always'
 PDSH_SSH_ARGS_APPEND=-tt

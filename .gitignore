@@ -4,6 +4,7 @@ emacs.d/.smex-data
 emacs.d/.smex-items
 emacs.d/places
 emacs.d/elpa
+emacs.d/url/cookies
 xmonad/xmonad-x86_64-linux
 xmonad/xmonad.hi
 xmonad/xmonad.o

@@ -51,7 +51,7 @@ if [ -d ${RBENV_PATH} ]; then
     eval "$(rbenv init -)"
 fi
 
-# heroku toolbet
+# heroku toolbelt
 HEROKU_PATH=/usr/local/heroku
 if [ -d ${HEROKU_PATH} ]; then
     export PATH=${HEROKU_PATH}/bin:$PATH
@@ -62,6 +62,12 @@ GOROOT=~/dev/oss/go
 if [ -d ${GOROOT} ]; then
     export GOROOT
     export PATH=${GOROOT}/bin:$PATH
+fi
+
+# aws
+AWS_AUTH=~/.aws/id.auth
+if [ -f ${AWS_AUTH} ]; then
+    source ${AWS_AUTH}
 fi
 
 # random

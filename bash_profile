@@ -77,3 +77,4 @@ PDSH_SSH_ARGS_APPEND=-tt
 # aliases
 alias ls='ls --color=auto'
 alias less='less -R'
+alias emacs='emacsclient -t'

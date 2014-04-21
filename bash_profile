@@ -64,6 +64,12 @@ if [ -d ${GOROOT} ]; then
     export PATH=${GOROOT}/bin:$PATH
 fi
 
+GOPATH=~/dev/go
+if [ -d ${GOPATH} ]; then
+    export GOPATH
+    export PATH=${PATH}:${GOPATH}/bin
+fi
+
 # aws
 AWS_AUTH=~/.aws/id.auth
 if [ -f ${AWS_AUTH} ]; then

@@ -92,6 +92,8 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; render tabs as two spaces in gomode
+(setq gofmt-command "goimports")
+(add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'go-mode-hook
           (lambda ()
             (setq default-tab-width 2)))

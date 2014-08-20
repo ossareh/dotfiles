@@ -76,12 +76,5 @@ if [ -f ${AWS_AUTH} ]; then
     source ${AWS_AUTH}
 fi
 
-# random
-export GREP_OPTIONS='--color=always'
-PDSH_SSH_ARGS_APPEND=-tt
-
 # aliases
-alias ls='ls --color=auto'
-alias less='less -R'
 alias emacs='emacsclient -t'
-alias gotest='for t in `find . -name "*_test.go" -exec dirname {} \;`; do go test -v ${PWD#*/src/}/${t}; done'

@@ -22,10 +22,8 @@
                       ac-nrepl
                       align-cljlet
                       clojure-mode
-                      clojure-project-mode
                       cider
                       auto-complete
-                      project-mode
                       find-file-in-project
                       flymake
                       flymake-css

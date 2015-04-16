@@ -1,7 +1,9 @@
 Dotfiles
 ========
 
-Using the dotfiles from pythons pip repo
+Using the dotfiles from pythons pip repo. To get started on a new
+machine run bootstrap.sh (curl it, run it, it sets up ~/Dotfiles as
+part of it while ensuring basics are available)
 
 ### to add files:
 
@@ -9,26 +11,12 @@ Using the dotfiles from pythons pip repo
 
 ### to sync
 
-`dotfiles --sync`
-
-Exceptions
-==========
-
-`cdmrc` should be put in `/etc/cdmrc`
-Once `awesome` is linked into `~/` you then need to symlink it to `~/.config/awesome`
-
-MISC
-====
-
-Install ttf-google-fonts-git if you're on arch :)
-
+`dotfiles --sync -f`
 
 TO-DO
 =====
 
  + emacs should highlight lines with trailing whitespace #editor
- + use pacman aliases from the arch linux docs #os
- + fix awesome client resizing #os #windowmanager
  + build notify.us #projects
  + get clipboard working between browser, terminal and editor
    #os #editor

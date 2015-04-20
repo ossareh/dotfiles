@@ -52,3 +52,9 @@ dotfiles -s -f
 
 # Setup rxvt
 xrdb -merge ~/.Xresources
+
+# Setup basic git things
+echo "************************************************************"
+echo "* You now need to run `git config --global` as your user   *"
+echo "* for keys: `user.name`, `user.email`, and `color.ui auto` *"
+echo "************************************************************"

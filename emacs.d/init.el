@@ -95,3 +95,6 @@
 (add-hook 'go-mode-hook
           (lambda ()
             (setq default-tab-width 2)))
+
+;; auto complete setup
+(global-auto-complete-mode 1)

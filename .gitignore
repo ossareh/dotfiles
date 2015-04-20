@@ -5,6 +5,9 @@ emacs.d/.smex-items
 emacs.d/places
 emacs.d/elpa
 emacs.d/url/cookies
+emacs.d/ac-comphist.dat
+emacs.d/ido.last
+emacs.d/recentf
 xmonad/xmonad-x86_64-linux
 xmonad/xmonad.hi
 xmonad/xmonad.o

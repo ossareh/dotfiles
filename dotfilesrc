@@ -3,4 +3,5 @@ repository = ~/Dotfiles
 ignore = [
   '.git',
   '.gitignore',
-  'README.md']
+  'README.md',
+  'secret.d']

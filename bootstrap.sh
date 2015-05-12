@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 set -euo pipefail
 
 mkdir -p ~/bin
@@ -7,19 +7,17 @@ mkdir -p ~/dev/src
 # base packages
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/chrome.list
-echo "deb http://http.debian.net/debian wheezy-backports main" > /etc/apt/sources.list.d/wheezy-backports.list
 
 apt-get update -y
 apt-get install -y \
         chrony \
 	curl \
+        emacs24-nox \
         git \
 	google-chrome-stable \
         mercurial\
         python-pip \
-	rxvt-unicode-256color 
-
-apt-get -t wheezy-backports -y install emacs24-nox
+	rxvt-unicode-256color
 
 
 # Go Setup
@@ -28,8 +26,8 @@ echo "5020af94b52b65cc9b6f11d50a67e4bae07b0aff  /tmp/go.tgz" | sha1sum -c
 ( cd ~/dev && tar xzf /tmp/go.tgz )
 
 PATH=~/dev/go/bin:${PATH}
-GOROOT=~/dev/go
-GOPATH=~/dev
+export GOROOT=~/dev/go
+export GOPATH=~/dev
 
 go get golang.org/x/tools/cmd/...
 

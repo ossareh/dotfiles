@@ -8,10 +8,6 @@ mkdir -p ~/dev/src
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/chrome.list
 
-# necessary for grpc dev locally
-echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" > /etc/apt/sources.list.d/debian-unstable.list
-
-
 apt-get update -y
 apt-get install -y \
         chrony \

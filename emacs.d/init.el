@@ -98,3 +98,4 @@
 
 ;; auto complete setup
 (global-auto-complete-mode 1)
+(put 'narrow-to-region 'disabled nil)

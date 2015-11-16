@@ -8,16 +8,21 @@ mkdir -p ~/dev/src
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/chrome.list
 
+wget -q -O - https://www.virtualbox.org/download/oracle_vbox.asc | apt-key add -
+echo "deb http://download.virtualbox.org/virtualbox/debian jessie contrib" > /etc/apt/sources.list.d/virtualbox.list
+
 apt-get update -y
 apt-get install -y \
         chrony \
-	curl \
+        curl \
+        dkms \
         emacs24-nox \
         git \
-	google-chrome-stable \
+        google-chrome-stable \
         mercurial\
         python-pip \
-	rxvt-unicode-256color
+        rxvt-unicode-256color \
+        virtualbox-4.3
 
 
 # Go Setup

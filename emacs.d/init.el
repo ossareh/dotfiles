@@ -13,16 +13,11 @@
   (package-refresh-contents))
 
 (defvar my-packages '(starter-kit
-                      starter-kit-lisp
                       starter-kit-bindings
                       starter-kit-ruby
                       starter-kit-js
                       no-easy-keys
                       color-theme
-                      ac-nrepl
-                      align-cljlet
-                      clojure-mode
-                      cider
                       auto-complete
                       find-file-in-project
                       flymake
@@ -38,21 +33,28 @@
                       flymake-python-pyflakes
                       flymake-ruby
                       flymake-shell
-                      handlebars-mode
-                      lua-mode
-                      magit
-                      markdown-mode
-                      org
-                      paredit
-                      puppet-mode
-                      whitespace-cleanup-mode
-                      rainbow-delimiters
                       go-autocomplete
                       go-direx
                       go-eldoc
                       go-errcheck
+                      golint
                       go-mode
-                      golint)
+                      go-projectile
+                      go-snippets
+                      helm
+                      helm-projectile
+                      helm-go-package
+                      lua-mode
+                      magit
+                      markdown-mode
+                      org
+                      org-projectile
+                      paredit
+                      projectile
+                      puppet-mode
+                      whitespace-cleanup-mode
+                      rainbow-delimiters
+                      terraform-mode)
   "A list of packages to be installed at startup")
 
 (dolist (p my-packages)
@@ -62,10 +64,15 @@
 ;; disable the line highlight
 (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
 (remove-hook 'prog-mode-hook 'esk-turn-on-idle-highlight-mode)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 ;; disable arrow keys
 (require 'no-easy-keys)
 (no-easy-keys 1)
+
+;; helm setup
+(global-set-key (kbd "M-x") 'helm-M-x)
+(helm-mode 1)
 
 ;; setup auto modes
 (defvar my-filemodes '(("\\.rabl$" . ruby-mode)
@@ -83,11 +90,6 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
 (require 'color-theme)
 (load-theme 'solarized-dark t)
-
-;; clojure setup
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
-(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; render tabs as two spaces in gomode
 (setq gofmt-command "goimports")

@@ -19,11 +19,15 @@ apt-get install -y \
         emacs24-nox \
         git \
         google-chrome-stable \
+        i3lock \
+        imagemagick \
         mercurial\
         python-pip \
         rxvt-unicode-256color \
-        virtualbox-4.3
-
+        scrot \
+        virtualbox-4.3 \
+        xautolock \ 
+        xsel
 
 # Go Setup
 curl -o /tmp/go.tgz -L https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz

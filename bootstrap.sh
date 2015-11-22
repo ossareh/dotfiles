@@ -28,7 +28,7 @@ apt-get install -y \
 # Go Setup
 curl -o /tmp/go.tgz -L https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz
 echo "46eecd290d8803887dec718c691cc243f2175fe0  /tmp/go.tgz" | sha1sum -c
-( cd ~/dev && tar xzf /tmp/go.tgz )
+( mkdir -p ~/dev && cd ~/dev && tar xzf /tmp/go.tgz )
 
 PATH=~/dev/go/bin:${PATH}
 export GOROOT=~/dev/go

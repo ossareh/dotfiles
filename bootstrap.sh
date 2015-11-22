@@ -38,7 +38,7 @@ go get golang.org/x/tools/cmd/...
 
 
 # Fonts
-curl -o /tmp/scp.tgz -L https://github.com/adobe-fonts/source-code-pro/archive/1.017R.tar.gz
+curl -o /tmp/scp.tgz -L 'https://github.com/adobe-fonts/source-code-pro/archive/2.010R-ro/1.030R-it.tar.gz'
 ( mkdir -p ~/.fonts && cd ~/.fonts && tar xvf /tmp/scp.tgz && fc-cache -f -v )
 echo "************************************************"
 echo "You now need to run `fc-cache -f -v` as you user"

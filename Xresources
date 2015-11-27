@@ -1,18 +1,25 @@
-!---- URxvt - General settings {
+!---- URxvt - General settings
 URxvt*:borderLess:                    true
 URxvt*cursorBlink:                    true
-URxvt*font:                           xft:Source Code Pro Medium:pixelsize=14
+URxvt*font:                           xft:Source Code Pro Medium:pixelsize=22
 URxvt*jumpScroll:                     true
 URxvt*scrollBar:                      false
 URxvt*scrollTtyOutput:                false
 URxvt*scrollTtyKeypress:              true
 URxvt*urgentOnBell:                   true
 URxvt*visualBell:                     false
-URxvt*perl-ext-common:                default,matcher
 URxvt*urlLauncher:                    google-chrome
 URxvt*matcher.button:                 1
 URxvt.depth:                          32
 URxvt.loginShell:                     true
+URxvt*iso14755:			      false
+
+!---- Plugins
+URxvt.perl-ext-common:                default,keyboard-select,clipboard
+URxvt.keysym.M-Escape:		      perl:keyboard-select:activate
+URxvt.keysym.M-c:		      perl:clipboard:copy
+URxvt.keysym.M-v:		      perl:clipboard:paste
+URxvt.keysym.M-C-v:		      perl:clipboard:paste_escaped
 
 !---- Default URxvt (Solarized Dark, 12px)
 URxvt*fading:                         0

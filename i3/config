@@ -161,3 +161,4 @@ bar {
 }
 
 # Start auto locker
+exec --no-startup-id xautolock -time 1 -locker "lockscreen -sleep"

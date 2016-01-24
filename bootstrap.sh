@@ -19,11 +19,15 @@ apt-get install -y \
         emacs24-nox \
         git \
         google-chrome-stable \
+        i3lock \
+        imagemagick \
         mercurial\
         python-pip \
         rxvt-unicode-256color \
-        virtualbox-4.3
-
+        scrot \
+        virtualbox-4.3 \
+        xautolock \ 
+        xsel
 
 # Go Setup
 curl -o /tmp/go.tgz -L https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz
@@ -38,7 +42,7 @@ go get golang.org/x/tools/cmd/...
 
 
 # Fonts
-curl -o /tmp/scp.tgz -L https://github.com/adobe-fonts/source-code-pro/archive/1.017R.tar.gz
+curl -o /tmp/scp.tgz -L 'https://github.com/adobe-fonts/source-code-pro/archive/2.010R-ro/1.030R-it.tar.gz'
 ( mkdir -p ~/.fonts && cd ~/.fonts && tar xvf /tmp/scp.tgz && fc-cache -f -v )
 echo "************************************************"
 echo "You now need to run `fc-cache -f -v` as you user"

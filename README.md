@@ -13,6 +13,20 @@ part of it while ensuring basics are available)
 
 `dotfiles --sync -f`
 
+## Power Management
+
+The script at `bin/lockscreen` relies on being able to call
+`pm-suspend` with elevated privileges. To enable this you need the
+following in `/etc/sudoers.d/power`:
+
+```
+%adm ALL=NOPASSWD: /usr/sbin/pm-suspend, \
+		/usr/sbin/pm-suspend-hybrid, \
+		/usr/sbin/pm-hibernate
+```
+
+Also make sure you're in the `adm` group.
+
 TO-DO
 =====
 

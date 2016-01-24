@@ -6,11 +6,7 @@ mogrify -scale 5% -scale 2000% /tmp/locked.png
 i3lock -i /tmp/locked.png
 
 if [ "${1}" == "-sleep" ]; then
-    # Use dbus to put machine to sleep
-    dbus-send --system --print-reply \
-	--dest="org.freedesktop.UPower" \
-	/org/freedesktop/UPower \
-	org.freedesktop.UPower.Suspend
+    sudo pm-suspend
 else 
     sleep 60; pgrep i3lock && xset dpms force off
 fi

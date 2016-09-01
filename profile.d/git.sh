@@ -1,8 +1,5 @@
-COLOR_RED="\033[0;31m"
 COLOR_YELLOW="\033[0;33m"
 COLOR_GREEN="\033[0;32m"
-COLOR_OCHRE="\033[38;5;95m"
-COLOR_BLUE="\033[0;34m"
 COLOR_WHITE="\033[0;37m"
 COLOR_RESET="\033[0m"
 
@@ -11,7 +8,7 @@ function git_color {
 
   if [[ ! $git_status =~ "working directory clean" ]]; then
     echo -e $COLOR_YELLOW
-  else
+  elif [[ $git_status =~ "nothing to commit" ]]; then
     echo -e $COLOR_GREEN
   fi
 }
@@ -30,8 +27,8 @@ function git_branch {
   fi
 }
 
-PS1="\n\[$COLOR_WHITE\][\W]"  # basename of pwd
-PS1+="\[\$(git_color)\]"    # colors git status
-PS1+="\$(git_branch)"       # prints current branch
-PS1+="\[$COLOR_RESET\]\$ "  # '#' for root, else '$'
+PS1="\n\[$COLOR_WHITE\][\W]" # basename of pwd
+PS1+="\[\$(git_color)\]"     # colors git status
+PS1+="\$(git_branch)"        # prints current branch
+PS1+="\[$COLOR_RESET\] \$ "  # '#' for root, else '$'
 export PS1

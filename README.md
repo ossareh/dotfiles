@@ -14,5 +14,8 @@ Steps:
 Then run this:
 
 ```shell
+# install dotfiles
 $ chezmoi init ossareh
+# install tools
+$ rtx install --yes
 ```

@@ -141,4 +141,5 @@ emulate zsh
 
 eval "$(/opt/homebrew/bin/rtx activate zsh)"
 eval "$(starship init zsh)"
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(`rtx which zoxide` init zsh --cmd cd)"

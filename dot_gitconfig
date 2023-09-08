@@ -1,3 +1,6 @@
+[include]
+	path = .config/delta/themes.gitconfig
+
 [core]
 	pager = delta
 
@@ -5,8 +8,10 @@
 	diffFilter = delta --color-only --features=interactive
 
 [delta]
-	features = decorations
+	features = mantis-shrimp
 	navigate = true
+	side-by-side = true
+	hyperlinks = true
 
 [delta "interactive"]
 	keep-plus-minus-markers = false
@@ -33,3 +38,6 @@
 
 [commit]
 	gpgsign = true
+
+[pager]
+	blame = delta

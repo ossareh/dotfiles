@@ -140,6 +140,6 @@ emulate sh
 emulate zsh
 
 eval "$(/opt/homebrew/bin/rtx activate zsh)"
-eval "$(starship init zsh)"
+eval "$(`rtx which starship` init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(`rtx which zoxide` init zsh)"

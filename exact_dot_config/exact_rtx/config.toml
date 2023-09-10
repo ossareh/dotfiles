@@ -8,6 +8,7 @@ fzf = "0.42.0"
 jq = "1.7"
 nodejs = "18.17.1"
 ripgrep = "13.0.0"
+starship = "1.16.0"
 zoxide = "0.9.2"
 
 [plugins]
@@ -20,6 +21,7 @@ fzf = "https://github.com/kompiro/asdf-fzf"
 jq = "https://github.com/lsanwick/asdf-jq"
 nodejs = "https://github.com/rtx-plugins/rtx-nodejs"
 ripgrep = "https://gitlab.com/wt0f/asdf-ripgrep"
+starship = "https://github.com/grimoh/asdf-starship"
 zoxide = "https://github.com/nyrst/asdf-zoxide"
 
 # TODO:

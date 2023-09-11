@@ -1,4 +1,3 @@
-
 # Path was getting very long; broke it up into chunks. Be careful as you build this
 
 # system paths
@@ -146,3 +145,5 @@ eval "$(/opt/homebrew/bin/rtx activate zsh)"
 eval "$(`rtx which starship` init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(`rtx which zoxide` init zsh)"
+
+[[ ! -f ~/.zalias ]] || source ~/.zalias

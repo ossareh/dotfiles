@@ -142,9 +142,9 @@ emulate sh
 [[ ! -f  ~/.profile ]] || source ~/.profile
 emulate zsh
 
-eval "$(/opt/homebrew/bin/rtx activate zsh)"
-eval "$(`rtx which starship` init zsh)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+eval "$(`mise which starship` init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(`rtx which zoxide` init zsh)"
+eval "$(`mise which zoxide` init zsh)"
 
 [[ ! -f ~/.zalias ]] || source ~/.zalias

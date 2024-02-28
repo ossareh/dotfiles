@@ -32,7 +32,7 @@
 	colorMoved = default
 
 [user]
-	signingkey = 5F205C8AAD1AAE80
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOT2uG//X9GOpAEW2buUGrvGsuqym8ekXWGlEbIRvP9
 	email = ossareh@gmail.com
 	name = P. Michael Ossareh
 
@@ -41,3 +41,12 @@
 
 [pager]
 	blame = delta
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true

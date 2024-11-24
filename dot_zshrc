@@ -49,7 +49,7 @@ if [[ -d "${HOME}/.zplug" ]]; then
     fi
 
     zplug load
-    mise install -q
+    mise install
 
     [[ ! -f ~/.zalias ]] || source ~/.zalias
     eval "$(`mise which starship` init zsh)"

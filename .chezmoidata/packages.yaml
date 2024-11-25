@@ -1,0 +1,13 @@
+packages:
+  darwin:
+    brews:
+    - 'git-lfs'
+    - 'libyaml'
+    - 'mise'
+    casks:
+    - '1password-cli'
+    - 'balenaetcher'
+    - 'ollama'
+    - 'orbstack'
+    - 'rar'
+

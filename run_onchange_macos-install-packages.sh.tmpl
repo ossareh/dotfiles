@@ -2,6 +2,9 @@
 #!/bin/bash
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.macos.taps -}}
+tap {{ . | quote }}
+{{ end -}}
 {{ range .packages.macos.brews -}}
 brew {{ . | quote }}
 {{ end -}}

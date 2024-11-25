@@ -1,6 +1,11 @@
 packages:
   macos:
+    taps:
+    - 'railwaycat/emacsmacport'
     brews:
+    - 'coreutils'
+    - 'emacs'
+    - 'git'
     - 'git-lfs'
     - 'libyaml'
     - 'mise'

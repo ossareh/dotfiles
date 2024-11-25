@@ -1,0 +1,17 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+FONT_DIR="$HOME/Library/Fonts"
+
+mkdir -p "$FONT_DIR"
+
+NERD_FONT_REPO="https://github.com/ryanoasis/nerd-fonts/releases/latest/download"
+
+{{ range .fonts.macos.nerdfonts -}}
+FONT={{ . | quote }}
+echo "Downloading ${FONT}"
+curl -L -o "/tmp/${FONT}.zip" "${NERD_FONT_REPO}/${FONT}.zip"
+echo "Installing ${FONT}..."
+unzip -o "/tmp/${FONT}.zip" -d "${FONT_DIR}"
+{{ end -}}
+{{ end -}}

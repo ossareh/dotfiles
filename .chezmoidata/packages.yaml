@@ -1,18 +1,25 @@
 packages:
   macos:
     taps:
-    - 'railwaycat/emacsmacport'
+    - railwaycat/emacsmacport
     brews:
-    - 'coreutils'
-    - 'emacs'
-    - 'git'
-    - 'git-lfs'
-    - 'libyaml'
-    - 'mise'
+    - coreutils
+    - emacs-mac:
+        args:
+          - --with-modules
+          - --with-native-compilation
+    - fontconfig
+    - git
+    - git-lfs
+    - grep
+    - libyaml
+    - llvm
+    - mise
+    - pandoc
     casks:
-    - '1password-cli'
-    - 'balenaetcher'
-    - 'ollama'
-    - 'orbstack'
-    - 'rar'
+    - 1password-cli
+    - balenaetcher
+    - ollama
+    - orbstack
+    - rar
 

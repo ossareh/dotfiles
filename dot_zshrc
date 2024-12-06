@@ -9,16 +9,18 @@ export PATH=${PATH}:${HOME}/bin:${HOME}/.local/bin
 # development paths
 export PATH=${PATH}:${HOME}/dev/bin:~/.cargo/bin
 
+if [[ -x /opt/homebrew/brew/brew ]]; then
 # conditional paths
-if [[ -d /opt/homebrew ]]; then
-    export PATH=${PATH}:/opt/homebrew/bin:/opt/homebrew/sbin
-fi
+    if [[ -d /opt/homebrew ]]; then
+        export PATH=$(brew --prefix)/opt/homebrew/bin:$(brew --prefix)/opt/homebrew/sbin:${PATH}
+    fi
 
-if [[ -x /usr/local/opt/grep/libexec/gnubin ]]; then
-    # gnubin makes gnu grep available as grep
-    export PATH=${PATH}:/usr/local/opt/grep/libexec/gnubin
+    if [[ -d $(brew --prefix)/opt/grep/libexec/gnubin ]]; then
+        # gnubin makes gnu grep available as grep
+        export PATH=$(brew --prefix)/opt/grep/libexec/gnubin:${PATH}
+    fi
 fi
-
+ 
 if [[ -d "${HOME}/Applications/Visual Studio Code.app" ]]; then
     export PATH=${PATH}:"${HOME}/Applications/Visual Studio Code.app//Contents/Resources/app/bin"
     export EDITOR="code --wait"
@@ -59,14 +61,4 @@ if [[ -d "${HOME}/.zplug" ]]; then
 else
     echo "zplug not found... skipping init of your shell"
 fi
-
-
-#plugins=(
-#    git
-#
-
-
-
-#eval "$(`mise which zoxide` init zsh)"
-
 

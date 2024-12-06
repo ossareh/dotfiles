@@ -2,34 +2,39 @@
 
 These are required, but have not yet been integrated into the steps below.
 
-- install [Jetbrains Mono Nerd Font](https://www.nerdfonts.com/font-downloads)
-- install [1password-cli](https://1password.com/downloads/command-line/) - `brew install --cask 1password-cli`
+## Theory
+
+I'm writing this down because I'm worried I may be creating a cyclic relationship
+between mise and chezmoi. I intend that not to happen.
+
+Install chezmoi using your package manager, eg:
+
+``` shell
+$ brew install chezmoi
+
+```
+
+Then use chezmoi to bootstrap everything else:
+
+``` shell
+$ chezmoi init https://github.com/ossareh/dotfiles.git
+$ chezmoi install --yes
+```
 
 ## MacOS
 
 Assumes `homebrew` is installed
 
 ```shell
-$ brew install mise
-$ eval "$(~/.local/bin/mise activate bash)"
-$ mise use chezmoi --global --yes
-$ chezmoi init ossareh
+$ brew install chezmoi
+$ chezmoi init https://github.com/ossareh/dotfiles.git
 $ chezmoi apply -R
-$ mise install --yes
 $ chsh -s `which zsh` `whoami`
-$ brew bundle
 ```
+
+restart your shell.
 
 
 ## Debian:
 
-```shell
-$ sudo apt update && sudo apt install --yes build-essential curl zsh
-$ curl https://mise.run | sh
-$ eval "$(~/.local/bin/mise activate bash)"
-$ mise use chezmoi --global --yes
-$ chezmoi init ossareh
-$ chezmoi apply -R
-$ mise install --yes
-$ chsh -s `which zsh` `whoami`
-```
+this does not work yet

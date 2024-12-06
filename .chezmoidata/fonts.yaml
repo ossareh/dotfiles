@@ -1,5 +1,6 @@
 fonts:
   macos:
     nerdfonts:
-    - 'JetBrainsMono'
-    - 'FiraCode'
+    - JetBrainsMono
+    - FiraCode
+    - NerdFontsSymbolsOnly

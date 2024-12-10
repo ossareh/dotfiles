@@ -5,4 +5,6 @@ fi
 # Added by OrbStack: command-line tools and integration
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
-
+if [[ -d ${HOME}/.emacs.d/bin ]]; then
+    export PATH=${PATH}:${HOME}/.emacs.d/bin
+fi

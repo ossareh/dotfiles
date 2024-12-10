@@ -19,7 +19,18 @@ packages:
     casks:
     - 1password-cli
     - balenaetcher
+    - chatgpt
+    - discord
+    - figma
+    - iterm2
+    - monodraw
+    - notion
     - ollama
     - orbstack
     - rar
+    - signal
+    - steam
+    - transmission
+    - whatsapp
+    - winbox
 

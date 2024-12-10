@@ -9,7 +9,7 @@ export PATH=${PATH}:${HOME}/bin:${HOME}/.local/bin
 # development paths
 export PATH=${PATH}:${HOME}/dev/bin:~/.cargo/bin
 
-if [[ -x /opt/homebrew/brew/brew ]]; then
+if [[ -x /opt/homebrew/bin/brew ]]; then
 # conditional paths
     if [[ -d /opt/homebrew ]]; then
         export PATH=$(brew --prefix)/opt/homebrew/bin:$(brew --prefix)/opt/homebrew/sbin:${PATH}

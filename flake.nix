@@ -4,23 +4,35 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/nix/2.25.3.tar.gz";
-
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, darwin, determinate, ... }: {
+  outputs = inputs@{ self, darwin, home-manager, ... }: {
     darwinConfigurations = {
-      nixpkgs.hostPlatform = "aarch64-darwin";
 
       plinth = darwin.lib.darwinSystem {
         specialArgs = { inherit inputs; };
 
         modules = [
-          determinate.darwinModules.default
           ./modules/base/system.nix
+          ./modules/base/macos.nix
           ./modules/base/packages.nix
+	  ./modules/hosts/plinth.nix
+
+          home-manager.darwinModules.home-manager
+          {
+            # this is a temporary solution while I migrate to nix
+            # future systems should not need this
+            home-manager.backupFileExtension = "bkup";
+
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+          }
         ];
 
       };

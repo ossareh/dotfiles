@@ -1,6 +1,12 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = [
-    pkgs.vim
+  environment.systemPackages = with pkgs; [
+    curl
+    git
+    git-lfs
+    gnugrep
+    vim
+    zsh
   ];
+
 }

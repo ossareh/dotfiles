@@ -1,9 +1,0 @@
-[".zplug"]
-    type = "git-repo"
-    url = "https://github.com/zplug/zplug"
-    refreshPeriod = "168h"
-
-[".emacs.d"]
-    type = "git-repo"
-    url = "https://github.com/hlissner/doom-emacs"
-    refreshPeriod = "168h"

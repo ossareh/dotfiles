@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     curl
     git
@@ -8,5 +7,4 @@
     vim
     zsh
   ];
-
 }

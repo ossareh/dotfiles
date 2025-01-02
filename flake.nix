@@ -11,17 +11,20 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, darwin, home-manager, ... }: {
+  outputs = inputs @ {
+    darwin,
+    home-manager,
+    ...
+  }: {
     darwinConfigurations = {
-
       plinth = darwin.lib.darwinSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
 
         modules = [
           ./modules/base/system.nix
           ./modules/base/macos.nix
           ./modules/base/packages.nix
-	  ./modules/hosts/plinth.nix
+          ./modules/hosts/plinth.nix
 
           home-manager.darwinModules.home-manager
           {
@@ -31,10 +34,8 @@
 
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
           }
         ];
-
       };
     };
   };

@@ -1,5 +1,4 @@
-{ home-manager, pkgs, ... }:
-{
+{pkgs, ...}: {
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
 
@@ -8,21 +7,23 @@
     home = "/Users/ossareh";
   };
 
-  home-manager.users.ossareh = { lib, ...}: {
+  home-manager.users.ossareh = {lib, ...}: {
     home.stateVersion = "24.11";
 
     home.packages = with pkgs; [
       # bins
+      alejandra
       dogdns
       duf
       dust
+      nil
+      nixd
       procs
       shellcheck
       signal-desktop
       #starship
 
       # gui's
-      iterm2
       signal-desktop
       slack
       telegram-desktop
@@ -32,8 +33,6 @@
       # fonts
       cascadia-code
       font-awesome
-      nerd-fonts.fira-code
-      nerd-fonts.jetbrains-mono
     ];
 
     programs.zsh.enable = true;
@@ -55,19 +54,38 @@
       enable = true;
       enableZshIntegration = true;
       extraConfig = ''
-      	local config = {} 
- 
-        if wezterm.config_builder then
-          config = wezterm.config_builder()
-        end
- 
-        config.color_scheme = 'Nord (Gogh)'
-        config.font = wezterm.font('Cascadia Code')
-        config.font_size = 14.0
+        local config = {}
+        config.color_scheme = "nord"
+        config.font = wezterm.font("Cascadia Code")
+        config.font_size = 12.0
         config.front_end = "WebGpu"
-
+        config.hide_tab_bar_if_only_one_tab = true
         return config
       '';
+    };
+    programs.zed-editor = {
+      enable = true;
+      extensions = [
+        "nix"
+        "nil"
+      ];
+      userSettings = {
+        auto_update = false;
+        vim_mode = true;
+
+        buffer_font_family = "Cascadia Code";
+        buffer_font_size = 14;
+
+        languages = {
+          Nix = {
+            formatter = {
+              external = {
+                command = "alejandra";
+              };
+            };
+          };
+        };
+      };
     };
     programs.zellij.enable = true;
     programs.zoxide.enable = true;

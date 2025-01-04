@@ -12,6 +12,7 @@
 
     home.packages = with pkgs; [
       # bins
+      _1password-cli
       alejandra
       dogdns
       duf
@@ -24,6 +25,10 @@
       #starship
 
       # gui's
+      #
+      # _1password-gui is marked broken, install via download until this is remedied
+      # https://github.com/NixOS/nixpkgs/issues/254944
+      #
       signal-desktop
       slack
       telegram-desktop
@@ -44,8 +49,17 @@
       userEmail = "ossareh@gmail.com";
       signing = {
         key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOT2uG//X9GOpAEW2buUGrvGsuqym8ekXWGlEbIRvP9";
+        signByDefault = true;
       };
       extraConfig = {
+        gpg = {
+          format = "ssh";
+          ssh = {
+            # 1Password is installed via normal download until this is remedied:
+            # https://github.com/NixOS/nixpkgs/issues/254944
+            program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+          };
+        };
         merge = {
           conflictsytle = "zdiff3";
         };

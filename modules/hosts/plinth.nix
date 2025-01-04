@@ -39,10 +39,46 @@
 
     programs.git = {
       enable = true;
-      delta.enable = true;
+      lfs.enable = true;
+      userName = "P. Michael Ossareh";
+      userEmail = "ossareh@gmail.com";
+      signing = {
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOT2uG//X9GOpAEW2buUGrvGsuqym8ekXWGlEbIRvP9";
+      };
+      extraConfig = {
+        merge = {
+          conflictsytle = "zdiff3";
+        };
+      };
+      delta = {
+        enable = true;
+        options = {
+          navigate = true;
+          side-by-side = true;
+          hyperlinks = true;
+
+          commit-decoration-style = "blue ol";
+          commit-style = "raw";
+          file-style = "omit";
+          hunk-header-decoration-style = "blue box";
+          hunk-header-file-style = "red";
+          hunk-header-line-number-style = "#067a00";
+          hunk-header-style = "file line-number syntax";
+        };
+      };
     };
 
-    programs.bat.enable = true;
+    programs.bat = {
+      enable = true;
+      config = {
+        theme = "Nord";
+      };
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batgrep
+        batman
+      ];
+    };
     programs.btop.enable = true;
     programs.eza.enable = true;
     programs.fd.enable = true;
@@ -55,11 +91,15 @@
       enableZshIntegration = true;
       extraConfig = ''
         local config = {}
+
         config.color_scheme = "nord"
         config.font = wezterm.font("Cascadia Code")
         config.font_size = 12.0
         config.front_end = "WebGpu"
         config.hide_tab_bar_if_only_one_tab = true
+
+        config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
         return config
       '';
     };

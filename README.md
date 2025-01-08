@@ -17,8 +17,9 @@ nix will manage putting the `brew` bin into your path.
 $ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
   sh -s -- install
 
-# clone this repo into place
-git clone git@github.com:ossareh/dotfiles ~/.config/dotfiles
+# clone this repo into place and symlink
+git clone git@github.com:ossareh/dotfiles ~/dev/src/github.com/ossareh/dotfiles
+ln -s ~/dev/src/github.com/ossareh/dotfiles ~/.config/dotfiles
 cd ~/.config/dotfiles
 
 # install homebrew managed tools
@@ -26,13 +27,13 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 $ /opt/homebrew/bin/brew bundle --no-lock
 
 # install nix-darwin
-nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+nix run nix-darwin -- switch --flake ~/.config/dotfiles
 # restart shell
 
 # to trigger a rebuild
-darwin-rebuild switch --flake ~/.config/nix-darwin
+darwin-rebuild switch --flake ~/.config/dotfiles
 # you can optionally specify target hosts
-# darwin-rebuild switch --flake ~/.config/nix-darwin#plinth
+# darwin-rebuild switch --flake ~/.config/dotfiles#plinth
 ```
 
 ## Next steps

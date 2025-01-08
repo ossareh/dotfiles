@@ -1,57 +1,40 @@
 # Dotfiles
 
-These are required, but have not yet been integrated into the steps below.
+This is a recent rewrite to use nix. I don't really _get_ nix. So there may be some weirdness in all of this.
 
-## Theory
+Not managed via nix:
+1. homebrew
+2. browsers of choice (firefox)
+3. tools not well integrated into nix (1password, ollama, winbox, fantastical)
+4. mailspring (seemed wierd to have nix manage email but not calendar 🤷🏻‍♂️)
 
-I'm writing this down because I'm worried I may be creating a cyclic relationship
-between mise and chezmoi. I intend that not to happen.
+nix will manage putting the `brew` bin into your path.
 
-Install chezmoi using your package manager, eg:
+## Steps
 
-``` shell
-$ brew install chezmoi
+```sh
+# install determinate-nix - recommended by: https://github.com/LnL7/nix-darwin
+$ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
+  sh -s -- install
 
+# clone this repo into place
+git clone git@github.com:ossareh/dotfiles ~/.config/dotfiles
+cd ~/.config/dotfiles
+
+# install homebrew managed tools
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+$ /opt/homebrew/bin/brew bundle --no-lock
+
+# install nix-darwin
+nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+
+# restart shell
 ```
 
-Then use chezmoi to bootstrap everything else:
+## Next steps
 
-``` shell
-$ chezmoi init https://github.com/ossareh/dotfiles.git
-$ chezmoi install --yes
-```
-
-Ultimately you want to move to nix but you don't have time to work that out. 
-
-### Environment
-
-doom-emacs is your editor, you may have to run `./emacs/bin/doom install` on a new machine
-
-the intent is to start emacs in daemon mode: `emacs --daemon` and then connect to it with
-`emacsclient -nw` when you want to hack
-
-## Languages
-
-### `zig`
-
-```shell
-# install zls and copy it into ~/bin
-$ git clone github.com/zigtools/zls ~/dev/src/github.com/zigtools/zls
-$ cd ~/dev/src/github.com/zigtools/zls && git checkout 0.13.0 # bump this if you bump zig
-$ zig build -Doptimize=ReleaseSafe && cp zig-out/bin/zls ~/bin
-
-```
-
-## MacOS
-
-Assumes `homebrew` is installed
-
-```shell
-$ brew install chezmoi
-$ chezmoi init https://github.com/ossareh/dotfiles.git
-$ chezmoi apply -R
-$ chsh -s `which zsh` `whoami`
-```
-
-restart your shell.
-
+- [] add homebrew to PATH
+- [] integrate direnv for easy nix dev environments
+- [] prove above using this repo to get a markdown linter working
+- [] implement a decent (but not amazing) nvim installation
+- [] playbook for single user mode on remote boxen

@@ -17,9 +17,8 @@ nix will manage putting the `brew` bin into your path.
 $ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
   sh -s -- install
 
-# clone this repo into place and symlink
-git clone git@github.com:ossareh/dotfiles ~/dev/src/github.com/ossareh/dotfiles
-ln -s ~/dev/src/github.com/ossareh/dotfiles ~/.config/dotfiles
+# clone this repo into place
+git clone git@github.com:ossareh/dotfiles ~/.config/dotfiles
 cd ~/.config/dotfiles
 
 # install homebrew managed tools

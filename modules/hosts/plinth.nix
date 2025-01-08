@@ -31,15 +31,22 @@
       font-awesome
     ];
 
-    programs.zsh = {
+    programs.bat = {
       enable = true;
-      autosuggestion.enable = true;
-      history.extended = true;
-      profileExtra = ''
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-      '';
+      config = {
+        theme = "Nord";
+      };
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batgrep
+        batman
+      ];
     };
-
+    programs.btop.enable = true;
+    programs.eza.enable = true;
+    programs.fd.enable = true;
+    programs.fzf.enable = true;
+    programs.gh.enable = true;
     programs.git = {
       enable = true;
       lfs.enable = true;
@@ -53,7 +60,7 @@
         gpg = {
           format = "ssh";
           ssh = {
-            # 1Password is installed via normal download until this is remedied:
+            # 1Password is installed via homebrew until this is remedied:
             # https://github.com/NixOS/nixpkgs/issues/254944
             program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
           };
@@ -79,23 +86,6 @@
         };
       };
     };
-
-    programs.bat = {
-      enable = true;
-      config = {
-        theme = "Nord";
-      };
-      extraPackages = with pkgs.bat-extras; [
-        batdiff
-        batgrep
-        batman
-      ];
-    };
-    programs.btop.enable = true;
-    programs.eza.enable = true;
-    programs.fd.enable = true;
-    programs.fzf.enable = true;
-    programs.gh.enable = true;
     programs.jq.enable = true;
     programs.ripgrep.enable = true;
     programs.wezterm = {
@@ -141,6 +131,14 @@
     };
     programs.zellij.enable = true;
     programs.zoxide.enable = true;
+    programs.zsh = {
+      enable = true;
+      autosuggestion.enable = true;
+      history.extended = true;
+      profileExtra = ''
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      '';
+    };
 
     fonts.fontconfig.enable = true;
 

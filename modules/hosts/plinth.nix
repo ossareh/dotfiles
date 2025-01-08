@@ -23,20 +23,8 @@
       # ollama
       procs
       shellcheck
-      signal-desktop
+      # maybe not useful after switch to fish?
       #starship
-
-      # gui's
-      #
-      # _1password-gui is marked broken, install via download until this is remedied
-      # https://github.com/NixOS/nixpkgs/issues/254944
-      #
-      appflowy
-      signal-desktop
-      slack
-      telegram-desktop
-      whatsapp-for-mac
-      zoom-us
 
       # fonts
       cascadia-code

@@ -14,19 +14,22 @@ nix will manage putting the `brew` bin into your path.
 
 ```sh
 # install determinate-nix - recommended by: https://github.com/LnL7/nix-darwin
-$ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
   sh -s -- install
+
+# source the environment (happens automatically once finished)
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 
 # clone this repo into place
 git clone git@github.com:ossareh/dotfiles ~/.config/dotfiles
 cd ~/.config/dotfiles
 
 # install homebrew managed tools
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ /opt/homebrew/bin/brew bundle --no-lock
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/opt/homebrew/bin/brew bundle --no-lock
 
 # install nix-darwin
-nix run nix-darwin -- switch --flake ~/.config/nix-darwin
+nix run nix-darwin -- switch --flake ~/.config/dotfiles
 
 # restart shell
 ```

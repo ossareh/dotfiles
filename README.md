@@ -37,7 +37,7 @@ darwin-rebuild switch --flake ~/.config/nix-darwin
 
 ## Next steps
 
-- [] add homebrew to PATH
+- [x] add homebrew to PATH
 - [] integrate direnv for easy nix dev environments
 - [] prove above using this repo to get a markdown linter working
 - [] implement a decent (but not amazing) nvim installation

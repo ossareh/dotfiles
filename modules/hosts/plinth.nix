@@ -31,7 +31,14 @@
       font-awesome
     ];
 
-    programs.zsh.enable = true;
+    programs.zsh = {
+      enable = true;
+      autosuggestion.enable = true;
+      history.extended = true;
+      profileExtra = ''
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      '';
+    };
 
     programs.git = {
       enable = true;

@@ -19,6 +19,8 @@
       dust
       nil
       nixd
+      # inactive until https://github.com/LnL7/nix-darwin/pull/972 is merged
+      # ollama
       procs
       shellcheck
       signal-desktop
@@ -29,6 +31,7 @@
       # _1password-gui is marked broken, install via download until this is remedied
       # https://github.com/NixOS/nixpkgs/issues/254944
       #
+      appflowy
       signal-desktop
       slack
       telegram-desktop
@@ -149,6 +152,8 @@
     home.activation = {
       # use the hm DAG hook to write these _after_ everything has been created
       # https://github.com/LnL7/nix-darwin/issues/214#issuecomment-2525273333
+      #
+      # Consider replacing with: https://github.com/hraban/mac-app-util
       trampolineCreation = lib.hm.dag.entryAfter ["writeBoundary"] ''
         apps_source="$HOME/Applications/Home Manager Apps"
         moniker="Nix Trampolines"

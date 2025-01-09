@@ -3,12 +3,13 @@
 This is a recent rewrite to use nix. I don't really _get_ nix. So there may be some weirdness in all of this.
 
 Not managed via nix:
+
 1. homebrew
 2. browsers of choice (firefox)
 3. tools not well integrated into nix (1password, ollama, winbox, fantastical)
 4. mailspring (seemed wierd to have nix manage email but not calendar 🤷🏻‍♂️)
 
-nix will manage putting the `brew` bin into your path.
+nix manages putting `brew` into your path.
 
 ## Steps
 
@@ -37,8 +38,8 @@ darwin-rebuild switch --flake ~/.config/dotfiles
 
 ## Next steps
 
-- [x] add homebrew to PATH
-- [] integrate direnv for easy nix dev environments
-- [] prove above using this repo to get a markdown linter working
-- [] implement a decent (but not amazing) nvim installation
-- [] playbook for single user mode on remote boxen
+[x] add homebrew to PATH
+[x] integrate direnv for easy nix dev environments
+[] prove above using this repo to get a markdown linter working
+[] implement a decent (but not amazing) nvim installation
+[] playbook for single user mode on remote boxen

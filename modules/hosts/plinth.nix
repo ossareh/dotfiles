@@ -13,6 +13,7 @@
     home.packages = with pkgs; [
       # bins
       _1password-cli
+      devenv
       dogdns
       duf
       dust

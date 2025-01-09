@@ -13,18 +13,16 @@
     home.packages = with pkgs; [
       # bins
       _1password-cli
-      alejandra
       dogdns
       duf
       dust
       nil
       nixd
+      procs
       # inactive until https://github.com/LnL7/nix-darwin/pull/972 is merged
       # ollama
-      procs
-      shellcheck
       # maybe not useful after switch to fish?
-      #starship
+      # starship
 
       # fonts
       cascadia-code
@@ -43,6 +41,10 @@
       ];
     };
     programs.btop.enable = true;
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
     programs.eza.enable = true;
     programs.fd.enable = true;
     programs.fzf.enable = true;
@@ -90,7 +92,6 @@
     programs.ripgrep.enable = true;
     programs.wezterm = {
       enable = true;
-      enableZshIntegration = true;
       extraConfig = ''
         local config = {}
 
@@ -107,10 +108,6 @@
     };
     programs.zed-editor = {
       enable = true;
-      extensions = [
-        "nix"
-        "nil"
-      ];
       userSettings = {
         auto_update = false;
         vim_mode = true;
@@ -125,6 +122,9 @@
                 command = "alejandra";
               };
             };
+          };
+          Markdown = {
+            format_on_save = "on";
           };
         };
       };

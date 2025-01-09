@@ -1,6 +1,7 @@
 # Dotfiles
 
-This is a recent rewrite to use nix. I don't really _get_ nix. So there may be some weirdness in all of this.
+This is a recent rewrite to use nix. I don't really _get_ nix. So there may be some weirdness in
+all of this.
 
 Not managed via nix:
 
@@ -40,6 +41,6 @@ darwin-rebuild switch --flake ~/.config/dotfiles
 
 [x] add homebrew to PATH
 [x] integrate direnv for easy nix dev environments
-[] prove above using this repo to get a markdown linter working
+[x] prove above using this repo to get a markdown linter working
 [] implement a decent (but not amazing) nvim installation
 [] playbook for single user mode on remote boxen

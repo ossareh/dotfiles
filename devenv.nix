@@ -10,7 +10,6 @@
 
   # https://devenv.sh/packages/
   packages = with pkgs; [
-    alejandra
     nil
     nix
   ];
@@ -29,10 +28,10 @@
   #  echo hello from $GREET
   #'';
 
-  enterShell = ''
-    hello
-    git --version
-  '';
+  # enterShell = ''
+  #   hello
+  #   git --version
+  # '';
 
   # https://devenv.sh/tasks/
   # tasks = {
@@ -41,13 +40,24 @@
   # };
 
   # https://devenv.sh/tests/
-  enterTest = ''
-    echo "Running tests"
-    git --version | grep --color=auto "${pkgs.git.version}"
-  '';
+  # enterTest = ''
+  #   echo "Running tests"
+  #   git --version | grep --color=auto "${pkgs.git.version}"
+  # '';
 
   # https://devenv.sh/pre-commit-hooks/
-  # pre-commit.hooks.shellcheck.enable = true;
+  git-hooks.hooks = {
+    alejandra.enable = true;
+    markdownlint = {
+      enable = true;
+      args = ["--fix"];
+      settings.configuration = {
+        MD013 = {
+          line_length = 100;
+        };
+      };
+    };
+  };
 
   # See full reference at https://devenv.sh/reference/options/
 }

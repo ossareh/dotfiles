@@ -11,7 +11,7 @@
   # https://devenv.sh/packages/
   packages = with pkgs; [
     nil
-    nix
+    nixd
   ];
 
   # https://devenv.sh/languages/

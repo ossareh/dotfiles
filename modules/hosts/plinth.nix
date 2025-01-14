@@ -17,8 +17,6 @@
       dogdns
       duf
       dust
-      nil
-      nixd
       procs
       # inactive until https://github.com/LnL7/nix-darwin/pull/972 is merged
       # ollama
@@ -109,6 +107,7 @@
     };
     programs.zed-editor = {
       enable = true;
+      extensions = ["zed-r"];
       userSettings = {
         auto_update = false;
         vim_mode = true;
@@ -117,6 +116,9 @@
         buffer_font_size = 14;
 
         languages = {
+          Markdown = {
+            format_on_save = "on";
+          };
           Nix = {
             formatter = {
               external = {
@@ -124,8 +126,8 @@
               };
             };
           };
-          Markdown = {
-            format_on_save = "on";
+          R = {
+            tab_size = 2;
           };
         };
       };

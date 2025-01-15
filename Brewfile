@@ -11,6 +11,7 @@ cask "firefox@developer-edition", appdir: "~/Applications", require_sha: true
 cask "mailspring", appdir: "~/Applications", require_sha: true
 cask "ollama", appdir: "~/Applications", require_sha: true
 cask "signal@beta", appdir: "~/Applications", require_sha: true
+cask "telegram-desktop@beta", appdir: "~/Applications", require_sha: true
 cask "winbox", appdir: "~/Applications", require_sha: true
 
 mas "Reeder.", id: 6475002485

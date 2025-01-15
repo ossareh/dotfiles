@@ -92,6 +92,7 @@
     };
     programs.jq.enable = true;
     programs.ripgrep.enable = true;
+    programs.starship.enable = true;
     programs.wezterm = {
       enable = true;
       extraConfig = ''

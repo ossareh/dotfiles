@@ -107,7 +107,10 @@
     };
     programs.zed-editor = {
       enable = true;
-      extensions = ["zed-r"];
+      extensions = [
+        "zed-r"
+        "git-firefly"
+      ];
       userSettings = {
         auto_update = false;
         vim_mode = true;

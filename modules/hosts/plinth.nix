@@ -66,6 +66,9 @@
             program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
           };
         };
+        init = {
+          defaultBranch = "main";
+        };
         merge = {
           conflictsytle = "zdiff3";
         };

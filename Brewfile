@@ -15,3 +15,4 @@ cask "telegram-desktop@beta", appdir: "~/Applications", require_sha: true
 cask "winbox", appdir: "~/Applications", require_sha: true
 
 mas "Reeder.", id: 6475002485
+mas "Xcode", id: 497799835

@@ -10,6 +10,20 @@
   home-manager.users.ossareh = {lib, ...}: {
     home.stateVersion = "24.11";
 
+    home.file = {
+      ".config/nixpkgs/config.nix" = {
+        text = ''
+          {
+            packageOverrides = pkgs: {
+              nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+                inherit pkgs;
+              };
+            };
+          }
+        '';
+      };
+    };
+
     home.packages = with pkgs; [
       # bins
       _1password-cli
@@ -112,12 +126,13 @@
     programs.zed-editor = {
       enable = true;
       extensions = [
-        "zed-r"
+        "r"
         "git-firefly"
       ];
       userSettings = {
         auto_update = false;
         vim_mode = true;
+        load_direnv = "shell_hook";
 
         buffer_font_family = "Cascadia Code";
         buffer_font_size = 14;

@@ -139,6 +139,15 @@
       buffer_font_family = "Cascadia Code NF";
       buffer_font_size = 14;
 
+      assistant = {
+        enabled = true;
+        version = "2";
+        default_model = {
+          provider = "copilot_chat";
+          model = "gpt-4o";
+        };
+      };
+
       languages = {
         Markdown = {
           format_on_save = "on";

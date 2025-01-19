@@ -17,6 +17,24 @@
     ...
   }: {
     darwinConfigurations = {
+      hench = darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs;};
+
+        modules = [
+          ./modules/base/system.nix
+          ./modules/base/macos.nix
+          ./modules/base/packages.nix
+          ./modules/hosts/hench.nix
+
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.backupFileExtension = "bkup";
+
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
+      };
       plinth = darwin.lib.darwinSystem {
         specialArgs = {inherit inputs;};
 
@@ -28,8 +46,6 @@
 
           home-manager.darwinModules.home-manager
           {
-            # this is a temporary solution while I migrate to nix
-            # future systems should not need this
             home-manager.backupFileExtension = "bkup";
 
             home-manager.useGlobalPkgs = true;

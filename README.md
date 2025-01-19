@@ -16,7 +16,7 @@ nix manages putting `brew` into your path.
 
 ```sh
 # install determinate-nix - recommended by: https://github.com/LnL7/nix-darwin
-$ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
   sh -s -- install
 
 # clone this repo into place
@@ -24,8 +24,14 @@ git clone git@github.com:ossareh/dotfiles ~/.config/dotfiles
 cd ~/.config/dotfiles
 
 # install homebrew managed tools
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-$ /opt/homebrew/bin/brew bundle --no-lock
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/opt/homebrew/bin/brew bundle --no-lock
+
+# configure nix:
+mkdir -p ~/.config/nix
+echo <<NIX_CFG >> ~/.config/nix/nix.conf
+experimental-features = nix-command flakes
+NIX_CFG
 
 # install nix-darwin
 nix run nix-darwin -- switch --flake ~/.config/dotfiles

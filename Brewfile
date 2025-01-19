@@ -8,11 +8,14 @@ cask "appflowy", appdir: "~/Applications", require_sha: false
 cask "discord", appdir: "~/Applications", require_sha: true
 cask "fantastical", appdir: "~/Applications", require_sha: true
 cask "firefox@developer-edition", appdir: "~/Applications", require_sha: true
+cask "logitech-options", appdir: "~/Applications", require_sha: true
 cask "mailspring", appdir: "~/Applications", require_sha: true
 cask "ollama", appdir: "~/Applications", require_sha: true
 cask "signal@beta", appdir: "~/Applications", require_sha: true
+cask "spotify", appdir: "~/Applications", require_sha: true
 cask "telegram-desktop@beta", appdir: "~/Applications", require_sha: true
 cask "winbox", appdir: "~/Applications", require_sha: true
 
 mas "Reeder.", id: 6475002485
 mas "Xcode", id: 497799835
+

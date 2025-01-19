@@ -104,6 +104,13 @@
     };
     programs.jq.enable = true;
     programs.ripgrep.enable = true;
+    programs.ssh = {
+      enable = true;
+      addKeysToAgent = "yes";
+      matchBlocks."*".extraOptions = {
+        IdentityAgent = "\"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock\"";
+      };
+    };
     # maybe not useful after switch to fish?
     programs.starship.enable = true;
     programs.wezterm = {

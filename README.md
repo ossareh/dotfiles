@@ -29,7 +29,7 @@ cd ~/.config/dotfiles
 
 # configure nix:
 mkdir -p ~/.config/nix
-echo <<NIX_CFG >> ~/.config/nix/nix.conf
+cat <<NIX_CFG >> ~/.config/nix/nix.conf
 experimental-features = nix-command flakes
 NIX_CFG
 

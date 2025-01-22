@@ -1,4 +1,19 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  hostOptions ? {},
+  ...
+}: let
+  opts =
+    lib.recursiveUpdate {
+      dock = {
+        autohide = true;
+        largeTileSize = 96;
+        smallTileSize = 16;
+      };
+    }
+    hostOptions;
+in {
   # all my macos are apple silicon
   nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -13,10 +28,10 @@
   system = {
     defaults = {
       dock = {
-        autohide = false;
-        largesize = 96;
+        autohide = opts.dock.autohide;
+        largesize = opts.dock.largeTileSize;
         magnification = true;
-        tilesize = 48;
+        tilesize = opts.dock.smallTileSize;
         minimize-to-application = true;
         wvous-tr-corner = 2;
         wvous-tl-corner = 5;

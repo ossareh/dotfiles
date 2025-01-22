@@ -18,7 +18,15 @@
   }: {
     darwinConfigurations = {
       hench = darwin.lib.darwinSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          hostOptions = {
+            dock = {
+              autohide = false;
+              smallTileSize = 48;
+            };
+          };
+        };
 
         modules = [
           ./modules/base/system.nix
@@ -36,7 +44,15 @@
         ];
       };
       plinth = darwin.lib.darwinSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          hostOptions = {
+            dock = {
+              largeTileSize = 48;
+              smallTileSize = 16;
+            };
+          };
+        };
 
         modules = [
           ./modules/base/system.nix

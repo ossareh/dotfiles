@@ -130,7 +130,7 @@
       "git-firefly"
       "nix"
       "r"
-      "zed-org"
+      "org"
     ];
     userSettings = {
       auto_update = false;
@@ -147,6 +147,11 @@
           provider = "copilot_chat";
           model = "gpt-4o";
         };
+      };
+
+      journal = {
+        hour_format = "hour24";
+        path = "~/dev/src/github.com/ossareh/org";
       };
 
       languages = {

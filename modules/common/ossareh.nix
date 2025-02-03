@@ -130,6 +130,7 @@
       "git-firefly"
       "nix"
       "r"
+      "zed-org"
     ];
     userSettings = {
       auto_update = false;

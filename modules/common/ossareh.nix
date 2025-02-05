@@ -1,8 +1,17 @@
 {
   pkgs,
   lib,
+  userOptions ? {},
   ...
-}: {
+}: let
+  opts =
+    lib.recursiveUpdate {
+      ssh = {
+        signingKey = null;
+      };
+    }
+    userOptions;
+in {
   home.stateVersion = "24.11";
 
   home.file = {
@@ -61,7 +70,10 @@
     userName = "P. Michael Ossareh";
     userEmail = "ossareh@gmail.com";
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOT2uG//X9GOpAEW2buUGrvGsuqym8ekXWGlEbIRvP9";
+      key =
+        if opts.ssh.signingKey == null
+        then builtins.throw "Please set userOptions.ssh.signingKey"
+        else opts.ssh.signingKey;
       signByDefault = true;
     };
     extraConfig = {

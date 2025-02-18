@@ -141,8 +141,9 @@ in {
     extensions = [
       "git-firefly"
       "nix"
-      "r"
       "org"
+      "r"
+      "toml"
     ];
     userSettings = {
       auto_update = false;

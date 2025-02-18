@@ -14,6 +14,7 @@ cask "ollama", appdir: "~/Applications", require_sha: true
 cask "signal@beta", appdir: "~/Applications", require_sha: true
 cask "spotify", appdir: "~/Applications", require_sha: true
 cask "telegram-desktop@beta", appdir: "~/Applications", require_sha: true
+cask "whatsapp@beta", appdir: "~/Applications", require_sha: true
 cask "winbox", appdir: "~/Applications", require_sha: true
 
 mas "Reeder.", id: 6475002485

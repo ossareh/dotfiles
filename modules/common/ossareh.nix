@@ -85,11 +85,41 @@ in {
           program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
         };
       };
-      init = {
-        defaultBranch = "main";
-      };
       merge = {
         conflictsytle = "zdiff3";
+      };
+
+      # settings from: https://blog.gitbutler.com/how-git-core-devs-configure-git/
+      column.ui = "auto";
+      branch.sort = "-committerdate";
+      tag.sort = "version:refname";
+      init.defaultBranch = "main";
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        menmonicPrefix = true;
+        renames = true;
+      };
+      push = {
+        default = "simple";
+        autoSetupRemote = true;
+        followTags = true;
+      };
+      fetch = {
+        prune = true;
+        pruneTags = true;
+        all = true;
+      };
+      help.autocorrect = "prompt";
+      commit.verbose = true;
+      rerere = {
+        enabled = true;
+        autoupdate = true;
+      };
+      rebase = {
+        autoSquash = true;
+        autoStash = true;
+        updateRefs = true;
       };
     };
     delta = {

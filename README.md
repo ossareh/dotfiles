@@ -45,8 +45,9 @@ darwin-rebuild switch --flake ~/.config/dotfiles
 
 ## Next steps
 
-[x] add homebrew to PATH
-[x] integrate direnv for easy nix dev environments
-[x] prove above using this repo to get a markdown linter working
-[] implement a decent (but not amazing) nvim installation
-[] playbook for single user mode on remote boxen
+- [x] add homebrew to PATH
+- [x] integrate direnv for easy nix dev environments
+- [x] prove above using this repo to get a markdown linter working
+- [ ] migrate manual home-brew installation -> <https://github.com/zhaofengli/nix-homebrew>
+- [ ] implement a decent (but not amazing) nvim installation
+- [ ] playbook for single user mode on remote boxen

@@ -25,6 +25,12 @@
               autohide = false;
               smallTileSize = 48;
             };
+            additionalCasks = [
+              {
+                name = "logitech-options";
+                greedy = true;
+              }
+            ];
           };
         };
 

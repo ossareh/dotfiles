@@ -11,6 +11,7 @@
         largeTileSize = 96;
         smallTileSize = 16;
       };
+      additionalCasks = [];
     }
     hostOptions;
 in {
@@ -23,6 +24,69 @@ in {
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
+
+  homebrew.enable = true;
+  homebrew.casks =
+    [
+      {
+        name = "1password@beta";
+        greedy = true;
+      }
+      {
+        name = "appflowy";
+        greedy = true;
+      }
+      {
+        name = "discord";
+        greedy = true;
+      }
+      {
+        name = "fantastical";
+        greedy = true;
+      }
+      {
+        name = "firefox@developer-edition";
+        greedy = true;
+      }
+      {
+        name = "mailspring";
+        greedy = true;
+      }
+      {
+        name = "ollama";
+        greedy = true;
+      }
+      {
+        name = "signal@beta";
+        greedy = true;
+      }
+      {
+        name = "spotify";
+        greedy = true;
+      }
+      {
+        name = "telegram-desktop@beta";
+        greedy = true;
+      }
+      {
+        name = "whatsapp@beta";
+        greedy = true;
+      }
+      {
+        name = "winbox";
+        greedy = true;
+      }
+      {
+        name = "zoom";
+        greedy = true;
+      }
+    ]
+    ++ opts.additionalCasks;
+
+  homebrew.masApps = {
+    Reeder = 6475002485;
+    Xcode = 497799835;
+  };
 
   # sanity
   system = {

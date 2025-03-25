@@ -153,6 +153,10 @@ in {
   };
   # maybe not useful after switch to fish?
   programs.starship.enable = true;
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+  };
   programs.wezterm = {
     enable = true;
     extraConfig = ''
@@ -176,7 +180,6 @@ in {
       "nix"
       "org"
       "r"
-      "toml"
     ];
     userSettings = {
       auto_update = false;

@@ -220,7 +220,12 @@ in {
       };
     };
   };
-  programs.zellij.enable = true;
+  programs.zellij = {
+    enable = true;
+    enableZshIntegration = true;
+    attachExistingSession = true;
+    exitShellOnExit = true;
+  };
   programs.zoxide.enable = true;
   programs.zsh = {
     enable = true;

@@ -180,6 +180,8 @@ in {
       "nix"
       "org"
       "r"
+      "toml"
+      "zig"
     ];
     userSettings = {
       auto_update = false;

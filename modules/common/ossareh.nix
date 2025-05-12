@@ -182,6 +182,10 @@ in {
       "r"
       "toml"
       "zig"
+
+      # themes
+      "catppuccin"
+      "catppuccin-icons"
     ];
     userSettings = {
       auto_update = false;
@@ -190,6 +194,9 @@ in {
 
       buffer_font_family = "Cascadia Code NF";
       buffer_font_size = 14;
+
+      theme = "Catppuccin Frappé";
+      icon_theme = "Catppuccin Frappé";
 
       assistant = {
         enabled = true;

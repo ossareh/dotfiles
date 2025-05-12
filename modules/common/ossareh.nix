@@ -195,8 +195,12 @@ in {
         enabled = true;
         version = "2";
         default_model = {
-          provider = "copilot_chat";
-          model = "gpt-4o";
+          provider = "google";
+          model = "gemini-2.5-pro-preview-03-25";
+        };
+        inline_assistant_model = {
+          provider = "google";
+          model = "gemini-2.5-flash-preview-04-17";
         };
       };
 

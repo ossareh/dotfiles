@@ -26,59 +26,47 @@ in {
   system.stateVersion = 6;
 
   homebrew.enable = true;
+  homebrew.onActivation = {
+    autoUpdate = true;
+    upgrade = true;
+  };
   homebrew.casks =
     [
       {
         name = "1password@beta";
-        greedy = true;
       }
       {
         name = "appflowy";
-        greedy = true;
       }
       {
         name = "discord";
-        greedy = true;
       }
       {
         name = "fantastical";
-        greedy = true;
       }
       {
         name = "firefox@developer-edition";
-        greedy = true;
-      }
-      {
-        name = "mailspring";
-        greedy = true;
       }
       {
         name = "ollama";
-        greedy = true;
       }
       {
         name = "signal@beta";
-        greedy = true;
       }
       {
         name = "spotify";
-        greedy = true;
       }
       {
         name = "telegram-desktop@beta";
-        greedy = true;
       }
       {
         name = "whatsapp@beta";
-        greedy = true;
       }
       {
         name = "winbox";
-        greedy = true;
       }
       {
         name = "zoom";
-        greedy = true;
       }
     ]
     ++ opts.additionalCasks;

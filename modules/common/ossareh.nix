@@ -194,11 +194,20 @@ in {
       assistant = {
         enabled = true;
         version = "2";
+        enable_experimental_live_diffs = true;
         default_model = {
           provider = "google";
           model = "gemini-2.5-pro-preview-03-25";
         };
         inline_assistant_model = {
+          provider = "google";
+          model = "gemini-2.5-flash-preview-04-17";
+        };
+        commit_message_model = {
+          provider = "google";
+          model = "gemini-2.5-flash-preview-04-17";
+        };
+        thread_summary_model = {
           provider = "google";
           model = "gemini-2.5-flash-preview-04-17";
         };

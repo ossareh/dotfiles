@@ -35,6 +35,7 @@ in {
     dogdns
     duf
     dust
+    graphite-cli
     procs
     # inactive until https://github.com/LnL7/nix-darwin/pull/972 is merged
     # ollama

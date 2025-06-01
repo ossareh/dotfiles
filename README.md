@@ -23,10 +23,6 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 git clone git@github.com:ossareh/dotfiles ~/.config/dotfiles
 cd ~/.config/dotfiles
 
-# install homebrew managed tools
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-/opt/homebrew/bin/brew bundle --no-lock
-
 # configure nix:
 mkdir -p ~/.config/nix
 cat <<NIX_CFG >> ~/.config/nix/nix.conf
@@ -34,11 +30,11 @@ experimental-features = nix-command flakes
 NIX_CFG
 
 # install nix-darwin
-nix run nix-darwin -- switch --flake ~/.config/dotfiles
+sudo nix run nix-darwin -- switch --flake ~/.config/dotfiles
 # restart shell
 
 # to trigger a rebuild
-darwin-rebuild switch --flake ~/.config/dotfiles
+sudo darwin-rebuild switch --flake ~/.config/dotfiles
 # you can optionally specify target hosts
 # darwin-rebuild switch --flake ~/.config/dotfiles#plinth
 ```
@@ -48,6 +44,6 @@ darwin-rebuild switch --flake ~/.config/dotfiles
 - [x] add homebrew to PATH
 - [x] integrate direnv for easy nix dev environments
 - [x] prove above using this repo to get a markdown linter working
-- [ ] migrate manual home-brew installation -> <https://github.com/zhaofengli/nix-homebrew>
+- [x] migrate manual home-brew installation
 - [ ] implement a decent (but not amazing) nvim installation
 - [ ] playbook for single user mode on remote boxen

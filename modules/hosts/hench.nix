@@ -12,9 +12,7 @@
       pkgs = pkgs;
       lib = lib;
       userOptions = {
-        ssh = {
-          signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYNYPXTBt6qIBM8OPxTcS6Mjwl8hr3+Ok2lKGPDHY8e";
-        };
+        ssh.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYNYPXTBt6qIBM8OPxTcS6Mjwl8hr3+Ok2lKGPDHY8e";
       };
     };
 }

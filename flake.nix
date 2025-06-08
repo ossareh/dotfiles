@@ -9,6 +9,11 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -39,6 +44,9 @@
           ./modules/base/macos.nix
           ./modules/base/packages.nix
           ./modules/hosts/hench.nix
+          {
+            nixpkgs.overlays = [inputs.nur.overlay];
+          }
 
           home-manager.darwinModules.home-manager
           {
@@ -65,6 +73,9 @@
           ./modules/base/macos.nix
           ./modules/base/packages.nix
           ./modules/hosts/plinth.nix
+          {
+            nixpkgs.overlays = [inputs.nur.overlay];
+          }
 
           home-manager.darwinModules.home-manager
           {

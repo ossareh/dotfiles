@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   lib,
   hostOptions ? {},
   ...
@@ -22,6 +23,13 @@ in {
   # $ darwin-rebuild changelog
   system.stateVersion = 6;
 
+  # this is the nix-darwin programs
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    package = pkgs._1password-gui-beta;
+  };
+
   homebrew.enable = true;
   homebrew.onActivation = {
     autoUpdate = true;
@@ -29,9 +37,6 @@ in {
   };
   homebrew.casks =
     [
-      {
-        name = "1password@beta";
-      }
       {
         name = "appflowy";
       }

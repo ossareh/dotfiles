@@ -16,7 +16,6 @@ in {
 
   home.packages = with pkgs; [
     # bins
-    _1password-cli
     devenv
     dogdns
     duf
@@ -32,6 +31,7 @@ in {
     font-awesome
   ];
 
+  # this is home-manager's programs
   programs.bat = {
     enable = true;
     config = {
@@ -68,9 +68,10 @@ in {
       gpg = {
         format = "ssh";
         ssh = {
-          # 1Password is installed via homebrew until this is remedied:
-          # https://github.com/NixOS/nixpkgs/issues/254944
-          program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+          # this is a bit goofy; 1password is installed via nix-darwin which is defined in
+          # modules/base/macos.nix and referenced here. That is because I believe 1password
+          # should be globally available and not user-scoped
+          program = "${pkgs._1password-gui-beta}/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
         };
       };
       merge = {

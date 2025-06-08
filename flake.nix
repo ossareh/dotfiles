@@ -45,7 +45,7 @@
           ./modules/base/packages.nix
           ./modules/hosts/hench.nix
           {
-            nixpkgs.overlays = [inputs.nur.overlay];
+            nixpkgs.overlays = [inputs.nur.overlays.default];
           }
 
           home-manager.darwinModules.home-manager
@@ -74,7 +74,7 @@
           ./modules/base/packages.nix
           ./modules/hosts/plinth.nix
           {
-            nixpkgs.overlays = [inputs.nur.overlay];
+            nixpkgs.overlays = [inputs.nur.overlays.default];
           }
 
           home-manager.darwinModules.home-manager

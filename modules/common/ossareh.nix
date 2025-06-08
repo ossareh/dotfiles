@@ -164,6 +164,7 @@ in {
   programs.zed-editor = {
     enable = true;
     extensions = [
+      "mcp-server-context7"
       "git-firefly"
       "nix"
       "org"

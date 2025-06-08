@@ -190,7 +190,6 @@ in {
       assistant = {
         enabled = true;
         version = "2";
-        enable_experimental_live_diffs = true;
         default_model = {
           provider = "google";
           model = "gemini-2.5-pro-preview-03-25";

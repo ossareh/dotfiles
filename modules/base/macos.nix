@@ -15,9 +15,6 @@
     }
     hostOptions;
 in {
-  # all my macos are apple silicon
-  nixpkgs.hostPlatform = "aarch64-darwin";
-
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
 

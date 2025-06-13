@@ -4,11 +4,13 @@
   namespace,
   ...
 }: let
-  inherit (lib) mkIf;
-
   cfg = config.${namespace}.stacks.comms;
 in {
-  config = mkIf cfg.enable {
+  options.${namespace}.stacks.comms = {
+    enable = lib.mkEnableOption "comms stack";
+  };
+
+  config = lib.mkIf cfg.enable {
     homebrew = {
       casks = [
         "discord"

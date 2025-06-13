@@ -3,12 +3,16 @@
   namespace,
   ...
 }: let
-  inherit (lib.${namespace}) enabled;
+  inherit (lib.${namespace}) disabled;
 in {
-  ossarehnix = {
-    stacks = {
-      comms = enabled;
-    };
+  networking = {
+    computerName = "Ossareh's M2 Macbook Air";
+    hostName = "plinth";
+    wakeOnLan = disabled;
   };
-  system.stateVersion = 6;
+
+  system = {
+    primaryUser = "ossareh";
+    stateVersion = 6;
+  };
 }

@@ -5,11 +5,13 @@
   namespace,
   ...
 }: let
-  inherit (lib) mkIf;
-
   cfg = config.${namespace}.stacks.tools;
 in {
-  config = mkIf cfg.enable {
+  options.${namespace}.stacks.tools = {
+    enable = lib.mkEnableOption "common system tools stack";
+  };
+
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       cachix
       curl

@@ -4,15 +4,14 @@
   namespace,
   ...
 }: let
-  # The directory is zedEditor, but the Home Manager option is programs.zed
-  cfg = config.${namespace}.programs.zed;
+  cfg = config.${namespace}.programs.zedEditor;
 in {
-  options.${namespace}.programs.zed = {
-    enable = lib.mkEnableOption "zed";
+  options.${namespace}.programs.zedEditor = {
+    enable = lib.mkEnableOption "zed editor";
   };
 
   config = lib.mkIf cfg.enable {
-    programs.zed = {
+    programs.zed-edtiro = {
       enable = true;
       extensions = [
         "mcp-server-context7"

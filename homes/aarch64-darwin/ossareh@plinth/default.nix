@@ -7,13 +7,12 @@
   inherit (lib.${namespace}) enabled;
 in {
   ossarehnix = {
+    bundles = {
+      shell-improvements = enabled;
+      system-observation = enabled;
+    };
+
     programs = {
-      bat = enabled;
-      btop = enabled;
-      direnv = enabled;
-      eza = enabled;
-      fd = enabled;
-      fzf = enabled;
       gh = enabled;
       git = {
         enable = true;
@@ -69,26 +68,17 @@ in {
           };
         };
       };
-      jq = enabled;
-      ripgrep = enabled;
       ssh = enabled;
-      starship = enabled;
       vim = enabled;
       wezterm = enabled;
       zed-editor = enabled;
-      zellij = enabled;
-      zoxide = enabled;
       zsh = enabled;
     };
 
     tools = {
       devenv = enabled;
-      dogdns = enabled;
-      duf = enabled;
-      dust = enabled;
       graphite-cli = enabled;
       nodejs = enabled;
-      procs = enabled;
     };
 
     fonts = enabled;

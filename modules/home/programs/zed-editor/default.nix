@@ -8,8 +8,6 @@
 in {
   options.${namespace}.programs.zed-editor = {
     enable = lib.mkEnableOption "zed-editor";
-    # You could add more specific options for extensions or userSettings
-    # if you wanted to make them configurable from the main file.
   };
 
   config = lib.mkIf cfg.enable {

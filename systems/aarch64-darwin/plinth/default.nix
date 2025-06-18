@@ -1,6 +1,20 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  namespace,
+  ...
+}: let
+  inherit (lib.${namespace}) disabled;
+in {
   system.stateVersion = 6;
   system.primaryUser = "ossareh";
+
+  networking = {
+    computerName = "Ossareh's Laptop";
+    hostName = "plinth";
+    localHostName = "plinth";
+    wakeOnLan = disabled;
+  };
 
   nix.settings = {
     cores = 8;

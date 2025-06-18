@@ -32,5 +32,9 @@
           title = "Ossareh's System Management Flake";
         };
       };
+
+      channels-config = {
+        allowUnfree = true;
+      };
     };
 }

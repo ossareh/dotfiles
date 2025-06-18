@@ -80,19 +80,19 @@ in {
       zoxide = enabled;
       zsh = enabled;
     };
+
+    tools = {
+      devenv = enabled;
+      dogdns = enabled;
+      duf = enabled;
+      dust = enabled;
+      "graphite-cli" = enabled;
+      nodejs = enabled;
+      procs = enabled;
+    };
   };
 
-  home.stateVersion = "25.05";
   home.packages = with pkgs; [
-    devenv
-    dogdns
-    duf
-    dust
-    gnugrep
-    graphite-cli
-    nodejs # provides npx
-    procs
-
     # inactive until https://github.com/LnL7/nix-darwin/pull/972 is merged
     # ollama
 
@@ -100,4 +100,6 @@ in {
     cascadia-code
     font-awesome
   ];
+
+  home.stateVersion = "25.05";
 }

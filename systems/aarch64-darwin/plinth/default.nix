@@ -4,8 +4,28 @@
   namespace,
   ...
 }: let
-  inherit (lib.${namespace}) disabled;
+  inherit (lib.${namespace}) enabled disabled;
 in {
+  ossarehnix = {
+    bundles = {
+      comms = enabled;
+      development = enabled;
+    };
+
+    programs = {
+      firefox = enabled;
+
+      appflowy = enabled;
+      fantastical = enabled;
+
+      reeder = enabled;
+      spotify = enabled;
+
+      # home-networking
+      winbox = enabled;
+    };
+  };
+
   system.stateVersion = 6;
   system.primaryUser = "ossareh";
 
@@ -48,29 +68,6 @@ in {
     onActivation = {
       autoUpdate = true;
       upgrade = true;
-    };
-
-    # Many of these are actually user specific and should in fact be installed from
-    # homes/aarch64-darwin/ossareh@plinth/default.nix and not from here
-    casks = [
-      "appflowy"
-      "discord"
-      "fantastical"
-      "firefox@developer-edition"
-      "ollama"
-      "signal@beta"
-      "spotify"
-      "telegram-desktop@beta"
-      "whatsapp@beta"
-      "winbox"
-      "zoom"
-    ];
-
-    # Many of these are actually user specific and should in fact be installed from
-    # homes/aarch64-darwin/ossareh@plinth/default.nix and not from here
-    masApps = {
-      Reeder = 6475002485;
-      Xcode = 497799835;
     };
   };
 }

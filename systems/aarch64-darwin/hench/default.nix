@@ -7,7 +7,10 @@
   inherit (lib.${namespace}) enabled disabled;
 in {
   ossarehnix = {
-    ux.dock.largeTileSize = 48;
+    ux.dock = {
+      autohide = false;
+      smallTileSize = 48;
+    };
 
     bundles = {
       comms = enabled;
@@ -16,16 +19,15 @@ in {
 
     programs = {
       _1password = enabled;
+      logitech-options = enabled;
 
       firefox = enabled;
 
       appflowy = enabled;
       fantastical = enabled;
 
+      reeder = enabled;
       spotify = enabled;
-
-      # home-networking
-      winbox = enabled;
     };
   };
 
@@ -33,15 +35,15 @@ in {
   system.primaryUser = "ossareh";
 
   networking = {
-    computerName = "Ossareh's Laptop";
-    hostName = "plinth";
-    localHostName = "plinth";
+    computerName = "Ossareh's Mac Studio";
+    hostName = "hench";
+    localHostName = "hench";
     wakeOnLan = disabled;
   };
 
   nix.settings = {
-    cores = 8;
-    max-jobs = 8;
+    cores = 24;
+    max-jobs = 24;
 
     experimental-features = "nix-command flakes";
 

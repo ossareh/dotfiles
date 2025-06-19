@@ -7,6 +7,8 @@
   inherit (lib.${namespace}) enabled disabled;
 in {
   ossarehnix = {
+    ux.dock.largeTileSize = 48;
+
     bundles = {
       comms = enabled;
       development = enabled;

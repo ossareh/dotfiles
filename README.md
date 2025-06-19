@@ -43,14 +43,3 @@ nh darwin switch ~/.config/dotfiles
 things you're going to bring back:
 
 casks for hench: logitech-options
-
-settings per host:
-
-- hench
-  - dock
-    - autohide = false
-    - smallTileSize = 48
-- plinth
-  - dock
-    - largeTileSize = 48
-    - smallTileSize = 16

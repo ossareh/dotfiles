@@ -22,7 +22,6 @@ in {
           enable = true;
           userName = "P. Michael Ossareh";
           userEmail = "ossareh@gmail.com";
-          signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHhkLCu05Rl7UFs50qG34QZRiryrLWk0Eh18VeQ+pqBX ossareh@gmail.com";
 
           extraConfig = {
             gpg = {

@@ -13,6 +13,8 @@ in {
     };
 
     programs = {
+      _1password = enabled;
+
       firefox = enabled;
 
       appflowy = enabled;

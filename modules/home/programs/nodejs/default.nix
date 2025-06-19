@@ -5,15 +5,15 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.tools.dogdns;
+  cfg = config.${namespace}.programs.nodejs;
 in {
-  options.${namespace}.tools.dogdns = {
-    enable = lib.mkEnableOption "dogdns";
+  options.${namespace}.programs.nodejs = {
+    enable = lib.mkEnableOption "nodejs";
   };
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      dogdns
+      nodejs
     ];
   };
 }

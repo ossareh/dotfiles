@@ -16,9 +16,6 @@ in {
     ossarehnix = {
       programs = {
         btop = enabled;
-      };
-
-      tools = {
         dogdns = enabled;
         duf = enabled;
         dust = enabled;

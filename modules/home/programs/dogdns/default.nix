@@ -5,15 +5,15 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.tools.duf;
+  cfg = config.${namespace}.programs.dogdns;
 in {
-  options.${namespace}.tools.duf = {
-    enable = lib.mkEnableOption "duf";
+  options.${namespace}.programs.dogdns = {
+    enable = lib.mkEnableOption "dogdns";
   };
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      duf
+      dogdns
     ];
   };
 }

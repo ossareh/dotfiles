@@ -5,9 +5,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.tools.devenv;
+  cfg = config.${namespace}.programs.devenv;
 in {
-  options.${namespace}.tools.devenv = {
+  options.${namespace}.programs.devenv = {
     enable = lib.mkEnableOption "devenv";
   };
 

@@ -28,7 +28,7 @@ sudo nix run github:lnl7/nix-darwin#darwin-rebuild -- switch --flake github:ossa
 # restart shell
 
 # to trigger a rebuild
-nixre
+nh darwin switch ~/.config/dotfiles
 ```
 
 ## Next steps

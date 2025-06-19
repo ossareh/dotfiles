@@ -21,6 +21,7 @@ in {
         fd = enabled;
         fzf = enabled;
         jq = enabled;
+        nh = enabled;
         ripgrep = enabled;
         starship = enabled;
         zellij = enabled;

@@ -23,22 +23,12 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 git clone git@github.com:ossareh/dotfiles ~/.config/dotfiles
 cd ~/.config/dotfiles
 
-# configure nix:
-mkdir -p ~/.config/nix
-cat <<NIX_CFG >> ~/.config/nix/nix.conf
-experimental-features = nix-command flakes
-substituters = https://cache.nixos.org https://cache.nixos.org/ https://ossareh.cachix.org
-trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= ossareh.cachix.org-1:qk9AlH0oG2y7Cw2TonUjE6Ji8RnLNUSrU+nFhIYQ8IM=
-NIX_CFG
+sudo nix run github:lnl7/nix-darwin#darwin-rebuild -- switch --flake github:ossareh/dotfiles
 
-# install nix-darwin
-sudo nix run nix-darwin -- switch --flake ~/.config/dotfiles
 # restart shell
 
 # to trigger a rebuild
-sudo darwin-rebuild switch --flake ~/.config/dotfiles
-# you can optionally specify target hosts
-# darwin-rebuild switch --flake ~/.config/dotfiles#plinth
+nixre
 ```
 
 ## Next steps
@@ -51,17 +41,6 @@ sudo darwin-rebuild switch --flake ~/.config/dotfiles
 - [ ] playbook for single user mode on remote boxen
 
 things you're going to bring back:
-
-home manager settings:
-
-```nix
-home-manager.darwinModules.home-manager
-{
-  home-manager.backupFileExtension = "bkup";
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-}
-```
 
 casks for hench: logitech-options
 

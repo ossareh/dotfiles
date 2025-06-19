@@ -49,3 +49,29 @@ sudo darwin-rebuild switch --flake ~/.config/dotfiles
 - [x] migrate manual home-brew installation
 - [ ] implement a decent (but not amazing) nvim installation
 - [ ] playbook for single user mode on remote boxen
+
+things you're going to bring back:
+
+home manager settings:
+
+```nix
+home-manager.darwinModules.home-manager
+{
+  home-manager.backupFileExtension = "bkup";
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+}
+```
+
+casks for hench: logitech-options
+
+settings per host:
+
+- hench
+  - dock
+    - autohide = false
+    - smallTileSize = 48
+- plinth
+  - dock
+    - largeTileSize = 48
+    - smallTileSize = 16

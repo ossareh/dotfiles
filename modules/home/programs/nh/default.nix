@@ -2,7 +2,6 @@
   config,
   lib,
   namespace,
-  pkgs,
   ...
 }: let
   cfg = config.${namespace}.programs.nh;
@@ -19,16 +18,6 @@ in {
         extraArgs = "--keep 5 --keep-since 7d";
       };
       flake = config.home.homeDirectory/.config/dotfiles;
-    };
-
-    home = {
-      shellAliases = {
-        nixre = "nh ${
-          if pkgs.stdenv.hostPlatform.isDarwin
-          then "darwin"
-          else "os"
-        } switch";
-      };
     };
   };
 }

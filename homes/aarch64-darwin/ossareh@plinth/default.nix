@@ -1,14 +1,15 @@
 {pkgs, ...}: {
   home.stateVersion = "25.05";
   home.packages = with pkgs; [
-    # bins
     devenv
     dogdns
     duf
     dust
+    gnugrep
     graphite-cli
-    nodejs # for npx
+    nodejs # provides npx
     procs
+
     # inactive until https://github.com/LnL7/nix-darwin/pull/972 is merged
     # ollama
 

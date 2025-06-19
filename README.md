@@ -39,7 +39,3 @@ nh darwin switch ~/.config/dotfiles
 - [x] migrate manual home-brew installation
 - [ ] implement a decent (but not amazing) nvim installation
 - [ ] playbook for single user mode on remote boxen
-
-things you're going to bring back:
-
-casks for hench: logitech-options

@@ -75,7 +75,7 @@ in {
       starship = enabled;
       vim = enabled;
       wezterm = enabled;
-      "zed-editor" = enabled;
+      zed-editor = enabled;
       zellij = enabled;
       zoxide = enabled;
       zsh = enabled;
@@ -86,20 +86,13 @@ in {
       dogdns = enabled;
       duf = enabled;
       dust = enabled;
-      "graphite-cli" = enabled;
+      graphite-cli = enabled;
       nodejs = enabled;
       procs = enabled;
     };
+
+    fonts = enabled;
   };
-
-  home.packages = with pkgs; [
-    # inactive until https://github.com/LnL7/nix-darwin/pull/972 is merged
-    # ollama
-
-    # fonts
-    cascadia-code
-    font-awesome
-  ];
 
   home.stateVersion = "25.05";
 }

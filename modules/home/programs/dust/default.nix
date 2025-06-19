@@ -5,9 +5,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.tools.dust;
+  cfg = config.${namespace}.programs.dust;
 in {
-  options.${namespace}.tools.dust = {
+  options.${namespace}.programs.dust = {
     enable = lib.mkEnableOption "dust";
   };
 

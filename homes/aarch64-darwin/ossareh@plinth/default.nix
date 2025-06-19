@@ -13,13 +13,10 @@ in {
     };
 
     programs = {
+      nodejs = enabled;
       vim = enabled;
       wezterm = enabled;
       zsh = enabled;
-    };
-
-    tools = {
-      nodejs = enabled;
     };
 
     fonts = enabled;

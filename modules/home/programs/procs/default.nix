@@ -5,15 +5,15 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.tools.nodejs;
+  cfg = config.${namespace}.programs.procs;
 in {
-  options.${namespace}.tools.nodejs = {
-    enable = lib.mkEnableOption "nodejs";
+  options.${namespace}.programs.procs = {
+    enable = lib.mkEnableOption "procs";
   };
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      nodejs
+      procs
     ];
   };
 }

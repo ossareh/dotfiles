@@ -5,15 +5,15 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.tools.procs;
+  cfg = config.${namespace}.programs.duf;
 in {
-  options.${namespace}.tools.procs = {
-    enable = lib.mkEnableOption "procs";
+  options.${namespace}.programs.duf = {
+    enable = lib.mkEnableOption "duf";
   };
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      procs
+      duf
     ];
   };
 }

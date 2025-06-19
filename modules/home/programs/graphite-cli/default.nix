@@ -5,9 +5,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.${namespace}.tools.graphite-cli;
+  cfg = config.${namespace}.programs.graphite-cli;
 in {
-  options.${namespace}.tools.graphite-cli = {
+  options.${namespace}.programs.graphite-cli = {
     enable = lib.mkEnableOption "graphite-cli";
   };
 

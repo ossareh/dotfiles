@@ -16,6 +16,7 @@ in {
   config = lib.mkIf cfg.enable {
     ossarehnix = {
       programs = {
+        devenv = enabled;
         gh = enabled;
         git = {
           enable = true;
@@ -71,13 +72,9 @@ in {
             };
           };
         };
+        graphite-cli = enabled;
         ssh = enabled;
         zed-editor = enabled;
-      };
-
-      tools = {
-        devenv = enabled;
-        graphite-cli = enabled;
       };
     };
   };

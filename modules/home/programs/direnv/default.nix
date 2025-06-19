@@ -16,6 +16,7 @@ in {
       enable = true;
       nix-direnv = enabled;
       silent = true;
+      enableZshIntegration = true;
     };
   };
 }

@@ -66,13 +66,4 @@ in {
     cachix
     curl
   ];
-
-  homebrew = {
-    enable = true;
-
-    onActivation = {
-      autoUpdate = true;
-      upgrade = true;
-    };
-  };
 }

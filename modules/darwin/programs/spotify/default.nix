@@ -4,6 +4,8 @@
   namespace,
   ...
 }: let
+  inherit (lib.${namespace}) enabled;
+
   cfg = config.${namespace}.programs.spotify;
 in {
   options.${namespace}.programs.spotify = {
@@ -11,6 +13,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    ossarehnix.homebrew = enabled;
+
     homebrew.casks = ["spotify"];
   };
 }

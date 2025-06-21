@@ -4,6 +4,8 @@
   lib,
   ...
 }: let
+  inherit (lib.${namespace}) enabled;
+
   cfg = config.${namespace}.programs.logitech-options;
 in {
   options.${namespace}.programs.logitech-options = {
@@ -11,6 +13,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    ossarehnix.homebrew = enabled;
+
     homebrew.casks = ["logitech-options"];
   };
 }

@@ -4,6 +4,8 @@
   namespace,
   ...
 }: let
+  inherit (lib.${namespace}) enabled;
+
   cfg = config.${namespace}.programs.reeder;
 in {
   options.${namespace}.programs.reeder = {
@@ -11,6 +13,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    ossarehnix.homebrew = enabled;
+
     homebrew.masApps = {Reeder = 6475002485;};
   };
 }

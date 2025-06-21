@@ -4,6 +4,8 @@
   namespace,
   ...
 }: let
+  inherit (lib.${namespace}) enabled;
+
   cfg = config.${namespace}.programs.firefox;
 in {
   options.${namespace}.programs.firefox = {
@@ -11,6 +13,8 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    ossarehnix.homebrew = enabled;
+
     homebrew.casks = ["firefox@developer-edition"];
   };
 }

@@ -23,6 +23,11 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    snowfall-flake = {
+      url = "github:snowfallorg/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -41,5 +46,9 @@
       channels-config = {
         allowUnfree = true;
       };
+
+      overlays = [
+        inputs.snowfall-flake.overlays."package/flake"
+      ];
     };
 }

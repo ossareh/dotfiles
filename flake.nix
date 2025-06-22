@@ -50,5 +50,9 @@
       overlays = [
         inputs.snowfall-flake.overlays."package/flake"
       ];
+
+      templates = {
+        base.description = "A base template for flakes";
+      };
     };
 }

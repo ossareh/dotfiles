@@ -8,7 +8,7 @@
   gitHooks = inputs.self.checks.${system}.git-hooks;
 in
   mkShell {
-    packages = with pkgs; [
+    nativeBuildInputs = with pkgs; [
       nil
       nixd
 

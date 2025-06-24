@@ -26,12 +26,12 @@
           name = "base-template";
           title = "base-template";
         };
-
-        channels-config = {
-          allowUnfree = true;
-        };
-
-        outputs-builder = channels: {formatter = channels.nixpkgs.nixfmt-rfc-style;};
       };
+
+      channels-config = {
+        allowUnfree = true;
+      };
+
+      outputs-builder = channels: {formatter = channels.nixpkgs.nixfmt-rfc-style;};
     };
 }

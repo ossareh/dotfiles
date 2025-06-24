@@ -15,6 +15,6 @@ in {
   config = lib.mkIf cfg.enable {
     ossarehnix.homebrew = enabled;
 
-    homebrew.casks = ["ollama"];
+    homebrew.casks = ["ollama-app"];
   };
 }

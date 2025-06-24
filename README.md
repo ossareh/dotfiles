@@ -1,16 +1,6 @@
 # Dotfiles
 
-This is a recent rewrite to use nix. I don't really _get_ nix. So there may be some weirdness in
-all of this.
-
-Not managed via nix:
-
-1. homebrew
-2. browsers of choice (firefox)
-3. tools not well integrated into nix (1password, ollama, winbox, fantastical)
-4. mailspring (seemed wierd to have nix manage email but not calendar 🤷🏻‍♂️)
-
-nix manages putting `brew` into your path.
+Nix managed dotfiles; heavily based on snowfall-org lib.
 
 ## Steps
 

@@ -58,6 +58,10 @@ in {
           };
         };
 
+        edit_predictions = {
+          mode = "subtle";
+        };
+
         journal = {
           hour_format = "hour24";
           path = "~/dev/src/github.com/ossareh/org";

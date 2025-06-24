@@ -16,6 +16,7 @@ in {
 
     programs = {
       nodejs = enabled;
+      snowfall-flake = enabled;
       vim = enabled;
       wezterm = enabled;
       zsh = enabled;

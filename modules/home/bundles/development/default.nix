@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib.${namespace}) enabled;
+  inherit (lib.${namespace}) disabled enabled;
 
   cfg = config.${namespace}.bundles.development;
 in {
@@ -16,7 +16,7 @@ in {
   config = lib.mkIf cfg.enable {
     ossarehnix = {
       programs = {
-        devenv = enabled;
+        devenv = disabled;
         gh = enabled;
         git = {
           enable = true;

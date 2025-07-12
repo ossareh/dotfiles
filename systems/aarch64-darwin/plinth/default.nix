@@ -21,6 +21,7 @@ in {
 
       appflowy = enabled;
       fantastical = enabled;
+      garmin-express = enabled;
 
       spotify = enabled;
 

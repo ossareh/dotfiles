@@ -28,6 +28,18 @@
       url = "github:snowfallorg/flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
   outputs = inputs:
@@ -49,6 +61,10 @@
 
       overlays = [
         inputs.snowfall-flake.overlays."package/flake"
+      ];
+
+      systems.modules.darwin = [
+        inputs.nix-homebrew.darwinModules.nix-homebrew
       ];
 
       templates = {

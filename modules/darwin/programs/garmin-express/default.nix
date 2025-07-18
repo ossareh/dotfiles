@@ -16,9 +16,5 @@ in {
     ossarehnix.homebrew = enabled;
 
     homebrew.casks = ["garmin-express"];
-
-    system.activationScripts.extraActivation.text = ''
-      softwareupdate --install-rosetta --agree-to-license
-    '';
   };
 }

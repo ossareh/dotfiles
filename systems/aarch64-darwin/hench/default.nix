@@ -5,6 +5,8 @@
   ...
 }: let
   inherit (lib.${namespace}) enabled disabled;
+
+  username = "ossareh";
 in {
   ossarehnix = {
     ux.dock = {
@@ -15,6 +17,11 @@ in {
     bundles = {
       comms = enabled;
       development = enabled;
+    };
+
+    homebrew = {
+      systemOwner = username;
+      migrate = true;
     };
 
     programs = {
@@ -32,7 +39,7 @@ in {
   };
 
   system.stateVersion = 6;
-  system.primaryUser = "ossareh";
+  system.primaryUser = username;
 
   networking = {
     computerName = "Ossareh's Mac Studio";

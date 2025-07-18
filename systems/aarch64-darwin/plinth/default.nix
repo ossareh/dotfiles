@@ -5,6 +5,8 @@
   ...
 }: let
   inherit (lib.${namespace}) enabled disabled;
+
+  username = "ossareh";
 in {
   ossarehnix = {
     ux.dock.largeTileSize = 48;
@@ -14,6 +16,7 @@ in {
       development = enabled;
     };
 
+    homebrew.systemOwner = username;
     programs = {
       _1password = enabled;
 
@@ -31,7 +34,7 @@ in {
   };
 
   system.stateVersion = 6;
-  system.primaryUser = "ossareh";
+  system.primaryUser = username;
 
   networking = {
     computerName = "Ossareh's Laptop";

@@ -35,6 +35,8 @@ in {
 
       reeder = enabled;
       spotify = enabled;
+
+      zed-editor = enabled;
     };
   };
 

@@ -28,6 +28,8 @@ in {
 
       spotify = enabled;
 
+      zed-editor = enabled;
+
       # home-networking
       winbox = enabled;
     };

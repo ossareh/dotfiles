@@ -2,87 +2,55 @@
   config,
   lib,
   namespace,
+  pkgs,
+  inputs,
   ...
 }: let
   cfg = config.${namespace}.programs.zed-editor;
+
+  generatedConfigFile = pkgs.writeText "zed_settings.json" (builtins.toJSON cfg.config);
+  writeableConfigFile = "${config.home.homeDirectory}/.config/zed/settings.json";
 in {
   options.${namespace}.programs.zed-editor = {
     enable = lib.mkEnableOption "zed-editor";
+    config = lib.mkOption {
+      type = lib.types.attrs;
+      default = {};
+      description = "zed-editor configuration";
+    };
   };
 
   config = lib.mkIf cfg.enable {
-    programs.zed-editor = {
-      enable = true;
-      extensions = [
-        "mcp-server-context7"
-        "git-firefly"
-        "nix"
-        "org"
-        "r"
-        "toml"
-        "zig"
+    programs.zed-editor.enable = false;
 
-        # themes
-        "catppuccin"
-        "catppuccin-icons"
-      ];
-      userSettings = {
-        auto_update = false;
-        vim_mode = true;
-        load_direnv = "shell_hook";
+    home.activation.manageZedConfig = inputs.home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
+            # make sure the directory exists
+            mkdir -p "$(${pkgs.coreutils}/bin/dirname "${writeableConfigFile}")"
 
-        buffer_font_family = "Cascadia Code NF";
-        buffer_font_size = 14;
+            # write the file if its not there
+            if [ ! -f "${writeableConfigFile}" ]; then
+              echo "✅ Initializing config at ${writeableConfigFile}"
+              ${pkgs.jq}/bin/jq < "${generatedConfigFile}" > "${writeableConfigFile}"
+            fi
 
-        theme = "Catppuccin Frappé";
-        icon_theme = "Catppuccin Frappé";
+            # COMPARE: Check if the user's file has diverged from the Nix-managed one.
+            if ! ${pkgs.nodePackages.json-diff}/bin/json-diff --sort "${generatedConfigFile}" "${writeableConfigFile}" >/dev/null; then
+              cat >&2 <<EOF
 
-        assistant = {
-          enabled = true;
-          version = "2";
-          default_model = {
-            provider = "google";
-            model = "gemini-2.5-pro-preview-03-25";
-          };
-          inline_assistant_model = {
-            provider = "google";
-            model = "gemini-2.5-flash-preview-04-17";
-          };
-          commit_message_model = {
-            provider = "google";
-            model = "gemini-2.5-flash-preview-04-17";
-          };
-          thread_summary_model = {
-            provider = "google";
-            model = "gemini-2.5-flash-preview-04-17";
-          };
-        };
+      ⚠️  WARNING: Configuration has diverged for zed.
+         Your local settings at:
+          '${writeableConfigFile}'
+         do not match the source in your Nix configuration.
 
-        edit_predictions = {
-          mode = "subtle";
-        };
+         To see the diff, run:
+          nix shell nixpkgs#nodePackages.json-diff --command json-diff '${generatedConfigFile}' '${writeableConfigFile}'
 
-        journal = {
-          hour_format = "hour24";
-          path = "~/dev/src/github.com/ossareh/org";
-        };
+         Then backport the changes to the nix-expression and re-run the build
 
-        languages = {
-          Markdown = {
-            format_on_save = "on";
-          };
-          Nix = {
-            formatter = {
-              external = {
-                command = "alejandra";
-              };
-            };
-          };
-          R = {
-            tab_size = 2;
-          };
-        };
-      };
-    };
+      EOF
+              exit 1
+            fi
+
+    '';
   };
 }

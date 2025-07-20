@@ -8,6 +8,8 @@ in {
   ossarehnix = {
     programs.git.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHhkLCu05Rl7UFs50qG34QZRiryrLWk0Eh18VeQ+pqBX ossareh@gmail.com";
 
+    programs.zed-editor.config = import (lib.snowfall.fs.get-file "modules/home/config/zed_settings.nix");
+
     bundles = {
       development = enabled;
       shell-improvements = enabled;

@@ -40,6 +40,11 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -61,6 +66,7 @@
 
       overlays = [
         inputs.snowfall-flake.overlays."package/flake"
+        inputs.nur.overlays.default
       ];
 
       systems.modules.darwin = [

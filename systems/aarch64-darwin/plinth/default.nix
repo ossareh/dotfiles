@@ -26,6 +26,9 @@ in {
       fantastical = enabled;
       garmin-express = enabled;
 
+      # not ready to add this to comms yet
+      microsoft-teams = disabled;
+
       spotify = enabled;
 
       zed-editor = enabled;

@@ -31,7 +31,7 @@ in {
 
       spotify = enabled;
 
-      zed-editor = enabled;
+      wezterm = enabled;
 
       # home-networking
       winbox = enabled;

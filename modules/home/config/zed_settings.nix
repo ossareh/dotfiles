@@ -1,7 +1,8 @@
 {
   auto_install_extensions = {
-    "mcp-server-context7" = true;
     "git-firefly" = true;
+    "lua" = true;
+    "mcp-server-context7" = true;
     "nix" = true;
     "org" = true;
     "r" = true;

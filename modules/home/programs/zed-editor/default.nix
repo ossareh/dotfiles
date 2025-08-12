@@ -13,16 +13,18 @@
 in {
   options.${namespace}.programs.zed-editor = {
     enable = lib.mkEnableOption "zed-editor";
+
     config = lib.mkOption {
       type = lib.types.attrs;
-      default = {};
+      default = ''
+        local config = {}
+        return config
+      '';
       description = "zed-editor configuration";
     };
   };
 
   config = lib.mkIf cfg.enable {
-    programs.zed-editor.enable = false;
-
     home.activation.manageZedConfig = inputs.home-manager.lib.hm.dag.entryAfter ["writeBoundary"] ''
             # make sure the directory exists
             mkdir -p "$(${pkgs.coreutils}/bin/dirname "${writeableConfigFile}")"

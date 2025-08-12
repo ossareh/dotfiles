@@ -17,6 +17,7 @@ in {
       programs = {
         ollama = enabled;
         xcode = enabled;
+        zed-editor = enabled;
       };
     };
   };

@@ -1,4 +1,8 @@
 {
+  features = {
+    edit_prediction_provider = "zed";
+  };
+
   auto_install_extensions = {
     "git-firefly" = true;
     "lua" = true;

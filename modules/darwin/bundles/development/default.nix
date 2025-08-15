@@ -15,6 +15,8 @@ in {
   config = lib.mkIf cfg.enable {
     ossarehnix = {
       programs = {
+        claude-code = enabled;
+        gemini-cli = enabled;
         ollama = enabled;
         xcode = enabled;
         zed-editor = enabled;

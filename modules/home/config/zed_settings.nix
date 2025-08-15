@@ -27,6 +27,8 @@
 
   agent = {
     enabled = true;
+    use_modifier_to_send = true;
+
     default_model = {
       provider = "google";
       model = "gemini-2.5-pro";

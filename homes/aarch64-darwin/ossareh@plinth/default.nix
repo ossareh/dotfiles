@@ -23,6 +23,11 @@ in {
         config = builtins.readFile (lib.snowfall.fs.get-file "modules/home/config/wezterm.lua");
       };
 
+      ghostty = {
+        enable = true;
+        config = builtins.readFile (lib.snowfall.fs.get-file "modules/home/config/ghostty");
+      };
+
       zed-editor.config = import (lib.snowfall.fs.get-file "modules/home/config/zed_settings.nix");
 
       zsh = enabled;

@@ -26,6 +26,7 @@ in {
 
     programs = {
       _1password = enabled;
+      claude = enabled;
       logitech-options = enabled;
 
       firefox = enabled;
@@ -36,7 +37,8 @@ in {
       reeder = enabled;
       spotify = enabled;
 
-      zed-editor = enabled;
+      wezterm = disabled;
+      ghostty = enabled;
     };
   };
 

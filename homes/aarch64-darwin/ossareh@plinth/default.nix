@@ -19,8 +19,8 @@ in {
       vim = enabled;
 
       wezterm = {
-        enable = true;
-        config = builtins.readFile (lib.snowfall.fs.get-file "modules/home/config/wezterm.lua");
+        enable = false;
+        #config = builtins.readFile (lib.snowfall.fs.get-file "modules/home/config/wezterm.lua");
       };
 
       ghostty = {

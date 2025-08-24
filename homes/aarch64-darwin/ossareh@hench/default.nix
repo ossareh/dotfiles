@@ -6,10 +6,6 @@
   inherit (lib.${namespace}) enabled;
 in {
   ossarehnix = {
-    programs.git.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYNYPXTBt6qIBM8OPxTcS6Mjwl8hr3+Ok2lKGPDHY8e";
-
-    programs.zed-editor.config = import (lib.snowfall.fs.get-file "modules/home/config/zed_settings.nix");
-
     bundles = {
       development = enabled;
       shell-improvements = enabled;
@@ -17,10 +13,23 @@ in {
     };
 
     programs = {
+      git.signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKYNYPXTBt6qIBM8OPxTcS6Mjwl8hr3+Ok2lKGPDHY8e";
       nodejs = enabled;
       snowfall-flake = enabled;
       vim = enabled;
-      wezterm = enabled;
+
+      wezterm = {
+        enable = false;
+        #config = builtins.readFile (lib.snowfall.fs.get-file "modules/home/config/wezterm.lua");
+      };
+
+      ghostty = {
+        enable = true;
+        config = builtins.readFile (lib.snowfall.fs.get-file "modules/home/config/ghostty");
+      };
+
+      zed-editor.config = import (lib.snowfall.fs.get-file "modules/home/config/zed_settings.nix");
+
       zsh = enabled;
     };
 

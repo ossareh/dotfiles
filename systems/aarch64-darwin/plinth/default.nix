@@ -32,7 +32,7 @@ in {
 
       spotify = enabled;
 
-      wezterm = enabled;
+      wezterm = disabled;
       ghostty = enabled;
 
       # home-networking
